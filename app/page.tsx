@@ -140,7 +140,7 @@ export default function Home() {
                   <img
                     src={card.img}
                     alt={card.title}
-                    className="h-full w-full object-cover grayscale brightness-95 transition-all duration-1000 ease-out group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-110"
+                    className="h-full w-full object-cover brightness-90 saturate-90 transition-all duration-1000 ease-out group-hover:scale-110 group-hover:brightness-105 group-hover:saturate-110"
                   />
 
                   <div className="absolute inset-0 bg-white/5 transition group-hover:bg-blue-900/45" />
