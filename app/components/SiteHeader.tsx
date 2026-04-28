@@ -2,21 +2,33 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
+  const pathname = usePathname(); // ✅ 위치 중요
+  const isEN = pathname.startsWith("/en");
+
   return (
     <>
+      {/* 헤더 */}
       <header className="fixed left-0 top-0 z-[120] flex w-full items-center justify-between px-12 py-8">
+        
+        {/* 로고 */}
         <Link href="/" onClick={() => setOpen(false)}>
           <img
-            src="/images/hanil-logo.png"
+            src={
+              isEN
+                ? "/images/hanil-logo-en.png" // 영어 로고
+                : "/images/hanil-logo.png"     // 한글 로고
+            }
             alt="HANIL INTERNATIONAL"
             className="h-10 w-auto object-contain"
           />
         </Link>
 
+        {/* 햄버거 버튼 */}
         <button
           type="button"
           onClick={() => setOpen(!open)}
@@ -34,20 +46,29 @@ export default function SiteHeader() {
         </button>
       </header>
 
+      {/* 메뉴 */}
       {open && (
         <>
+          {/* 배경 */}
           <div
             className="fixed inset-0 z-[80] bg-black/20"
             onClick={() => setOpen(false)}
           />
 
+          {/* 메뉴 영역 */}
           <div className="fixed right-0 top-0 z-[100] flex h-full w-[60%] bg-white shadow-2xl">
+            
+            {/* 왼쪽 영역 */}
             <div className="flex w-[38%] flex-col justify-between bg-white">
               <div className="flex flex-1 items-center justify-center px-12">
                 <img
-                  src="/images/hanil-logo.png"
+                  src={
+                    isEN
+                      ? "/images/hanil-logo-en.png"
+                      : "/images/hanil-logo.png"
+                  }
                   alt="HANIL INTERNATIONAL"
-                  className="max-h-20 w-[80%] max-w-[360px] object-contain"
+                  className="max-h-20 w-[80%] object-contain"
                 />
               </div>
 
@@ -69,9 +90,15 @@ export default function SiteHeader() {
               </div>
             </div>
 
+            {/* 오른쪽 메뉴 */}
             <div className="flex flex-1 items-center bg-[#3f4352] px-20 text-white">
               <div className="grid w-full grid-cols-2 gap-x-20 gap-y-16">
-                <MenuGroup title="ABOUT US" items={[["회사소개", "/about"]]} onClose={() => setOpen(false)} />
+
+                <MenuGroup
+                  title="ABOUT US"
+                  items={[["회사소개", "/about"]]}
+                  onClose={() => setOpen(false)}
+                />
 
                 <MenuGroup
                   title="IR INFORMATION"
@@ -103,31 +130,42 @@ export default function SiteHeader() {
                   onClose={() => setOpen(false)}
                 />
 
-                <MenuGroup title="NEWS ROOM" items={[["자료실", "/news"]]} onClose={() => setOpen(false)} />
+                <MenuGroup
+                  title="NEWS ROOM"
+                  items={[["자료실", "/news"]]}
+                  onClose={() => setOpen(false)}
+                />
 
-                <MenuGroup title="CONTACT US" href="/contact" items={[]} onClose={() => setOpen(false)} />
+                <MenuGroup
+                  title="CONTACT US"
+                  items={[]}
+                  href="/contact"
+                  onClose={() => setOpen(false)}
+                />
               </div>
             </div>
 
+            {/* 언어 선택 */}
             <div className="w-20 border-l border-gray-200 bg-white">
-  <div className="flex h-full flex-col items-center justify-center gap-6 text-sm tracking-[0.25em]">
-    
-    <Link
-      href={pathname.replace("/en", "") || "/"}
-      className="font-bold text-blue-900"
-    >
-      KR
-    </Link>
+              <div className="flex h-full flex-col items-center justify-center gap-6 text-sm tracking-[0.25em]">
+                
+                <Link
+                  href={pathname.replace("/en", "") || "/"}
+                  className={!isEN ? "font-bold text-blue-900" : "text-gray-400"}
+                >
+                  KR
+                </Link>
 
-    <Link
-      href={`/en${pathname}`}
-      className="text-gray-400"
-    >
-      EN
-    </Link>
+                <Link
+                  href={`/en${pathname}`}
+                  className={isEN ? "font-bold text-blue-900" : "text-gray-400"}
+                >
+                  EN
+                </Link>
 
-  </div>
-</div>
+              </div>
+            </div>
+
           </div>
         </>
       )}
