@@ -110,11 +110,24 @@ export default function SiteHeader() {
             </div>
 
             <div className="w-20 border-l border-gray-200 bg-white">
-              <div className="flex h-full flex-col items-center justify-center gap-6 text-sm tracking-[0.25em]">
-                <span className="font-bold text-blue-900">KR</span>
-                <span className="text-gray-400">EN</span>
-              </div>
-            </div>
+  <div className="flex h-full flex-col items-center justify-center gap-6 text-sm tracking-[0.25em]">
+    
+    <Link
+      href={pathname.replace("/en", "") || "/"}
+      className="font-bold text-blue-900"
+    >
+      KR
+    </Link>
+
+    <Link
+      href={`/en${pathname}`}
+      className="text-gray-400"
+    >
+      EN
+    </Link>
+
+  </div>
+</div>
           </div>
         </>
       )}
