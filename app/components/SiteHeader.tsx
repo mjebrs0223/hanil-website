@@ -9,6 +9,12 @@ export default function SiteHeader() {
 
   const pathname = usePathname(); // ✅ 위치 중요
   const isEN = pathname.startsWith("/en");
+  const currentPath = isEN
+  ? pathname.replace(/^\/en/, "") || "/"
+  : pathname;
+
+const krHref = currentPath;
+const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
 
   return (
     <>
@@ -30,6 +36,21 @@ export default function SiteHeader() {
 
         {/* 햄버거 버튼 */}
         <button
+        <div className="fixed right-9 top-24 z-[140] flex flex-col items-center gap-4 text-sm tracking-[0.25em]">
+  <Link
+    href={krHref}
+    className={!isEN ? "font-bold text-blue-900" : "text-gray-400"}
+  >
+    KR
+  </Link>
+
+  <Link
+    href={enHref}
+    className={isEN ? "font-bold text-blue-900" : "text-gray-400"}
+  >
+    EN
+  </Link>
+</div>
           type="button"
           onClick={() => setOpen(!open)}
           className="fixed right-8 top-8 z-[140] flex h-10 w-10 items-center justify-center"
