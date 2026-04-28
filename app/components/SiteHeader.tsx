@@ -22,7 +22,8 @@ const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
       <header className="fixed left-0 top-0 z-[120] flex w-full items-center justify-between px-12 py-8">
         
         {/* 로고 */}
-        <Link href="/" onClick={() => setOpen(false)}>
+        <Link href={krHref}>KR</Link>
+<Link href={enHref}>EN</Link>
           <img
             src={
               isEN
@@ -37,20 +38,7 @@ const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
         {/* 햄버거 버튼 */}
         <button
         <div className="fixed right-9 top-24 z-[140] flex flex-col items-center gap-4 text-sm tracking-[0.25em]">
-  <Link
-    href={krHref}
-    className={!isEN ? "font-bold text-blue-900" : "text-gray-400"}
-  >
-    KR
-  </Link>
-
-  <Link
-    href={enHref}
-    className={isEN ? "font-bold text-blue-900" : "text-gray-400"}
-  >
-    EN
-  </Link>
-</div>
+  
           type="button"
           onClick={() => setOpen(!open)}
           className="fixed right-8 top-8 z-[140] flex h-10 w-10 items-center justify-center"
@@ -66,6 +54,11 @@ const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
           )}
         </button>
       </header>
+
+      <div className="fixed right-9 top-24 z-[999] flex flex-col gap-4 bg-white p-4">
+  <Link href="/" className="text-black">KR</Link>
+  <Link href="/en" className="text-black">EN</Link>
+</div>
 
       {/* 메뉴 */}
       {open && (
