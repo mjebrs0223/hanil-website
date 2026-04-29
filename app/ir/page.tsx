@@ -30,7 +30,7 @@ export default function IRPage() {
             IR INFORMATION
           </p>
           <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Financial Statements
+            Financial Information
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             한일인터내셔널의 재무 현황과 공시 정보를 투명하게 제공합니다.

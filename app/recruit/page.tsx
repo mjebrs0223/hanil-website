@@ -27,7 +27,7 @@ export default function RecruitPage() {
             RECRUIT INFORMATION
           </p>
           <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Join Hanil International
+            채용정보
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             글로벌 무역 전문 기업 한일인터내셔널과 함께 성장할 인재를 기다립니다.

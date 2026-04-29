@@ -1,0 +1,314 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+export default function ContactPageEN() {
+  const [openReport, setOpenReport] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+
+    const res = await fetch("/api/report", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Your report has been submitted successfully.");
+      setOpenReport(false);
+    } else {
+      alert(data.message || "An error occurred.");
+    }
+  };
+
+  return (
+    <main className="bg-white text-[#222]">
+      <section className="relative flex min-h-[70vh] items-center px-12 pt-28">
+        <div className="absolute inset-0">
+          <img
+            src="/images/menu-contact.png"
+            alt="Contact Us"
+            className="h-full w-full object-cover grayscale brightness-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl">
+          <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
+            CONTACT US
+          </p>
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
+            CONTACT US
+          </h1>
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
+            We welcome business, partnership, and IR inquiries.
+          </p>
+
+          <Link href="/en" className="mt-10 inline-block font-semibold text-blue-700">
+            ← Home
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 px-12 py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
+              LOCATION
+            </p>
+            <h2 className="mt-5 text-4xl font-extrabold text-blue-950">
+              Location
+            </h2>
+
+            <div className="mt-10 rounded-3xl bg-white p-8 shadow-sm">
+              <p className="text-sm font-bold tracking-[0.25em] text-blue-700">
+                ADDRESS
+              </p>
+              <p className="mt-4 text-lg leading-8 text-gray-700">
+                5F, Hanil Cement Building
+                <br />
+                1587 Seocho-dong, Seocho-gu, Seoul
+              </p>
+
+              <div className="mt-8 h-px bg-gray-200" />
+
+              <p className="mt-8 text-sm font-bold tracking-[0.25em] text-blue-700">
+                TEL
+              </p>
+              <p className="mt-4 text-2xl font-extrabold text-blue-950">
+                02-6958-3500
+              </p>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] border border-gray-200 bg-white p-3 shadow-[0_30px_80px_rgba(0,0,0,0.12)]">
+            <iframe
+              src="https://www.google.com/maps?q=서울 서초구 서초동 1587&output=embed"
+              width="100%"
+              height="520"
+              style={{ border: 0, borderRadius: "1.5rem" }}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-12 py-20">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-10 border-t border-gray-200 pt-16">
+          <div className="flex items-center gap-8">
+            <h2 className="text-5xl font-extrabold text-blue-700">
+              Report
+            </h2>
+
+            <div className="h-12 w-px bg-gray-300" />
+
+            <p className="text-xl font-medium text-gray-800">
+              We value your voice for establishing an ethical corporate culture.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpenReport(true)}
+            className="rounded-xl bg-blue-600 px-12 py-5 text-lg font-bold text-white transition hover:bg-blue-700"
+          >
+            Submit Report
+          </button>
+        </div>
+      </section>
+
+      {openReport && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 px-6">
+          <form
+            onSubmit={handleSubmit}
+            className="relative h-[86vh] w-full max-w-5xl overflow-y-auto rounded-3xl bg-white p-12 shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setOpenReport(false)}
+              className="absolute right-8 top-8 text-4xl font-light text-gray-500 hover:text-blue-700"
+            >
+              ×
+            </button>
+
+            <p className="text-lg font-bold text-blue-600">
+              Receipt of Report
+            </p>
+            <h1 className="mt-3 text-5xl font-extrabold text-[#222]">
+              Submit Report
+            </h1>
+
+            <section className="mt-14">
+              <h2 className="text-2xl font-bold text-[#222]">Report Type</h2>
+
+              <div className="mt-8 overflow-hidden border-y border-gray-200">
+                <div className="grid grid-cols-[220px_1fr] border-b border-gray-200">
+                  <div className="flex items-center justify-center bg-gray-50 p-6 font-bold">
+                    Misconduct Report
+                  </div>
+                  <div className="p-6 leading-8 text-gray-700">
+                    · Violation of ethical standards
+                    <br />
+                    · Employee misconduct
+                    <br />
+                    · Illegal practices or irregularities
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-[220px_1fr]">
+                  <div className="flex items-center justify-center bg-gray-50 p-6 font-bold">
+                    Legal Violation
+                  </div>
+                  <div className="p-6 leading-8 text-gray-700">
+                    · Violations of laws or regulations during business activities
+                    <br />
+                    · Workplace sexual harassment
+                  </div>
+                </div>
+              </div>
+
+              <label className="mt-6 inline-flex items-center gap-3 rounded-full bg-gray-100 px-6 py-3 text-gray-700">
+                <input type="checkbox" />
+                Submit anonymously
+              </label>
+            </section>
+
+            <section className="mt-14">
+              <h2 className="text-2xl font-bold text-[#222]">
+                <span className="text-blue-600">[Required]</span> Consent to Collection and Use of Personal Information
+              </h2>
+
+              <p className="mt-5 leading-8 text-gray-700">
+                Hanil International collects the minimum personal information
+                necessary for processing reports.
+              </p>
+
+              <div className="mt-8 overflow-hidden border-y border-gray-200">
+                <div className="grid grid-cols-[1fr_1fr_160px_180px] bg-gray-50 text-center font-bold">
+                  <div className="p-5">Purpose</div>
+                  <div className="p-5">Items</div>
+                  <div className="p-5">Retention</div>
+                  <div className="p-5">Consent</div>
+                </div>
+
+                <div className="grid grid-cols-[1fr_1fr_160px_180px] border-t border-gray-200 text-center">
+                  <div className="p-5">Report handling</div>
+                  <div className="p-5">Name, phone, email, report details</div>
+                  <div className="p-5">5 years</div>
+                  <div className="space-y-2 p-5 text-left">
+                    <label className="block">
+                      <input type="radio" name="agree1" /> Agree
+                    </label>
+                    <label className="block">
+                      <input type="radio" name="agree1" /> Disagree
+                    </label>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-[1fr_1fr_160px_180px] border-t border-gray-200 text-center">
+                  <div className="p-5">Service usage statistics</div>
+                  <div className="p-5">Access logs, IP address</div>
+                  <div className="p-5">5 years</div>
+                  <div className="space-y-2 p-5 text-left">
+                    <label className="block">
+                      <input type="radio" name="agree2" /> Agree
+                    </label>
+                    <label className="block">
+                      <input type="radio" name="agree2" /> Disagree
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="mt-14">
+              <p className="mb-8 text-right text-sm text-gray-600">
+                <span className="text-blue-600">•</span> Required fields
+              </p>
+
+              <div className="space-y-5">
+                <ReportInput label="Name" required name="name" />
+                <ReportInput label="Email" required name="email" />
+                <ReportInput label="Phone" required name="phone" />
+
+                <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+                  <label className="font-semibold text-gray-700">
+                    <span className="text-blue-600">•</span> Title
+                  </label>
+                  <div className="flex gap-3">
+                    <select
+                      name="reportType"
+                      className="w-48 rounded-lg border border-gray-300 px-4 py-3"
+                    >
+                      <option value="">Report Type</option>
+                      <option value="Misconduct Report">Misconduct Report</option>
+                      <option value="Legal Violation">Legal Violation</option>
+                    </select>
+                    <input
+                      name="title"
+                      className="flex-1 rounded-lg border border-gray-300 px-4 py-3"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+                  <label className="font-semibold text-gray-700">Attachment</label>
+                  <input
+                    type="file"
+                    className="rounded-lg border border-gray-300 px-4 py-3"
+                  />
+                </div>
+
+                <div className="grid grid-cols-[120px_1fr] gap-5">
+                  <label className="pt-3 font-semibold text-gray-700">
+                    <span className="text-blue-600">•</span> Report Details
+                  </label>
+                  <textarea
+                    name="content"
+                    rows={7}
+                    className="rounded-lg border border-gray-300 px-4 py-3"
+                    placeholder="Please enter the details of your report."
+                  />
+                </div>
+              </div>
+            </section>
+
+            <button
+              type="submit"
+              className="mx-auto mt-12 block rounded-xl bg-blue-600 px-16 py-5 text-lg font-bold text-white transition hover:bg-blue-700"
+            >
+              Submit Report
+            </button>
+          </form>
+        </div>
+      )}
+    </main>
+  );
+}
+
+function ReportInput({
+  label,
+  required,
+  name,
+}: {
+  label: string;
+  required?: boolean;
+  name: string;
+}) {
+  return (
+    <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+      <label className="font-semibold text-gray-700">
+        {required && <span className="text-blue-600">•</span>} {label}
+      </label>
+      <input
+        name={name}
+        className="rounded-lg border border-gray-300 px-4 py-3"
+      />
+    </div>
+  );
+}

@@ -57,7 +57,7 @@ export default function BusinessPage() {
             BUSINESS AREA
           </p>
           <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Core Business
+            주요 사업
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             한일인터내셔널은 에너지, 철강, 화학 및 신성장 분야에서

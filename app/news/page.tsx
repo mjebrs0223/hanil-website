@@ -36,7 +36,7 @@ export default function NewsPage() {
             NEWS ROOM
           </p>
           <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Latest News
+            공지사항
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             한일인터내셔널의 새로운 소식과 공지사항을 확인하세요.
