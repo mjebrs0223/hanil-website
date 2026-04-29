@@ -29,13 +29,13 @@ export default function SiteHeader() {
           />
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-8">
           {!open && (
             <>
               <div className="group relative pb-6 text-sm font-semibold text-blue-950">
                 <button type="button">FAMILY SITE</button>
 
-                <div className="pointer-events-none absolute right-0 top-5 w-64 pt-5 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                <div className="pointer-events-none absolute right-0 top-6 w-64 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
                   <div className="rounded-xl bg-white p-4 shadow-xl">
                     <FamilyLink href="https://www.hanil.com">
                       {isEN ? "Hanil Holdings" : "한일홀딩스"}
