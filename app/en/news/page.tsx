@@ -25,7 +25,7 @@ export default function NewsPageEN() {
         <div className="absolute inset-0">
           <img
             src="/images/menu-news.png"
-            alt="News Room"
+            alt="Notice"
             className="h-full w-full object-cover grayscale brightness-90"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40" />
@@ -33,10 +33,10 @@ export default function NewsPageEN() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            NEWS ROOM
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Latest News
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            NOTICE
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             Explore the latest news and resources from Hanil International.

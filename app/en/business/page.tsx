@@ -54,10 +54,10 @@ export default function BusinessPageEN() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            BUSINESS AREA
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Core Business
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            BUSINESS AREA
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             Hanil International develops its business based on stable global
@@ -98,6 +98,24 @@ export default function BusinessPageEN() {
           ))}
         </div>
       </section>
+
+      <section className="mx-auto max-w-7xl px-12 py-24">
+  <div className="mx-auto max-w-7xl">
+    <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
+      BUSINESS PORTFOLIO
+    </p>
+
+    <h2 className="mt-5 text-4xl font-extrabold text-blue-950">
+      Stable Supply Chain and Diverse Business Portfolio
+    </h2>
+
+    <p className="mt-6 max-w-4xl text-lg leading-9 text-gray-600">
+      We supply essential materials such as energy resources, steel products,
+      and chemical materials to domestic and global clients, expanding a
+      sustainable foundation for growth across various industries.
+    </p>
+  </div>
+</section>
     </main>
   );
 }

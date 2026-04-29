@@ -11,13 +11,13 @@ export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const cards = [
-  { title: "About Us", img: "/images/menu-about.png", href: "/about" },
-  { title: "IR Information", img: "/images/menu-ir.png", href: "/ir" },
-  { title: "Business Area", img: "/images/menu-business.png", href: "/business" },
-  { title: "Recruit Information", img: "/images/menu-recruit.png", href: "/recruit" },
-  { title: "News Room", img: "/images/menu-news.png", href: "/news" },
-  { title: "Contact Us", img: "/images/menu-contact.png", href: "/contact" },
-];
+    { title: "About Us", img: "/images/menu-about.png", href: "/about" },
+    { title: "Business Area", img: "/images/menu-business.png", href: "/business" },
+    { title: "IR Information", img: "/images/menu-ir.png", href: "/ir" },
+    { title: "Notice", img: "/images/menu-news.png", href: "/news" },
+    { title: "Recruit Information", img: "/images/menu-recruit.png", href: "/recruit" },
+    { title: "Contact Us", img: "/images/menu-contact.png", href: "/contact" },
+  ];
 
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
@@ -68,44 +68,41 @@ export default function Home() {
 
   return (
     <main className="bg-[#f7f7f7] text-[#222]">
-      {/* Logo */}
-     
-
-      {/* Right UI */}
-      
-
       {/* First hero page */}
       <section className="relative flex h-screen items-center overflow-hidden px-12 pr-28">
         <div className="absolute inset-0">
           <img
-  src="/images/main-hero.jpg"
-  alt="Hanil International"
-  className="h-full w-full object-cover brightness-90"
-/>
+            src="/images/main-hero.jpg"
+            alt="Hanil International"
+            className="h-full w-full object-cover brightness-90"
+          />
 
-<div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
           <div className="absolute inset-0 bg-[#f7f7f7]/20" />
         </div>
 
         <div className="relative z-10 max-w-5xl pt-24">
-          <p className="text-sm font-semibold tracking-[0.35em] text-blue-700">
-            HANIL INTERNATIONAL
+          <p className="text-3xl font-extrabold tracking-[0.01em] text-blue-700">
+  HANIL INTERNATIONAL
+</p>
+
+          <h1 className="mt-1 text-6xl font-extrabold leading-tight text-blue-950">
+            Change and Innovation
+            <br />
+            with ESG 2030
+          </h1>
+
+          <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-blue-950 drop-shadow-sm">
+            에너지, 철강, 화학 및 신성장 분야를 중심으로 글로벌 비즈니스의 새로운 가능성을 만들어갑니다.
           </p>
+        </div>
 
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight tracking-tight text-blue-950 opacity-0 translate-y-6 animate-fadeUp">
-  Change and Innovation
-  <br />
-  with ESG 2030
-</h1>
-
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-blue-950 font-medium drop-shadow-sm">
-  에너지, 철강, 화학 및 신성장 분야를 중심으로 글로벌 비즈니스의 새로운 가능성을 만들어갑니다.
-</p>  
-
-          <div className="mt-14 flex items-center gap-6">
-            <span className="text-xs tracking-[0.35em] text-blue-950 font-semibold">SCROLL</span>
-            <div className="h-px w-40 bg-blue-700" />
-          </div>
+        {/* 세로형 SCROLL */}
+        <div className="absolute bottom-12 right-12 z-10 flex flex-col items-center gap-4">
+          <span className="rotate-90 text-xs font-semibold tracking-[0.35em] text-blue-950">
+            SCROLL
+          </span>
+          <div className="mt-10 h-24 w-px bg-blue-700" />
         </div>
       </section>
 
@@ -150,8 +147,6 @@ export default function Home() {
                       {card.title}
                     </div>
                   </div>
-
-                  
                 </a>
               );
             })}

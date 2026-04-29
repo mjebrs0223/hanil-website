@@ -33,11 +33,11 @@ export default function AboutPageEN() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            ABOUT US
+            
           </p>
 
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            HANIL INTERNATIONAL
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            ABOUT US
           </h1>
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
@@ -51,33 +51,8 @@ export default function AboutPageEN() {
         </div>
       </section>
 
+      
       <section className="mx-auto max-w-7xl px-12 py-24">
-        <div className="grid gap-10 lg:grid-cols-3">
-          <div className="rounded-3xl bg-blue-700 p-10 text-white">
-            <p className="text-sm tracking-[0.3em] text-white/70">SALES</p>
-            <p className="mt-6 text-5xl font-extrabold">391,852</p>
-            <p className="mt-3 text-white/80">KRW million / 2024</p>
-          </div>
-
-          <div className="rounded-3xl bg-blue-950 p-10 text-white">
-            <p className="text-sm tracking-[0.3em] text-white/70">
-              OPERATING PROFIT
-            </p>
-            <p className="mt-6 text-5xl font-extrabold">9,189</p>
-            <p className="mt-3 text-white/80">KRW million / 2024</p>
-          </div>
-
-          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-10">
-            <p className="text-sm tracking-[0.3em] text-blue-700">BUSINESS</p>
-            <p className="mt-6 text-3xl font-extrabold text-blue-950">
-              Energy · Steel · Chemical
-            </p>
-            <p className="mt-3 text-gray-600">Expanding into new materials</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-50 px-12 py-24">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             COMPANY OVERVIEW

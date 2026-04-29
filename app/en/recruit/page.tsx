@@ -24,10 +24,10 @@ export default function RecruitPageEN() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            RECRUIT
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Join Hanil International
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            RECRUIT
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             We are looking for talented people who will grow together
@@ -73,7 +73,7 @@ export default function RecruitPageEN() {
         </div>
       </section>
 
-      <section className="bg-gray-50 px-12 py-24">
+      <section className="mx-auto max-w-7xl px-12 py-24">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             RECRUIT PROCESS
@@ -119,6 +119,51 @@ export default function RecruitPageEN() {
           ))}
         </div>
       </section>
+      <section className="bg-gray-50 px-12 py-24">
+  <div className="mx-auto max-w-7xl">
+    <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
+      RECRUIT NOTICE
+    </p>
+
+    <h2 className="mt-5 text-4xl font-extrabold text-blue-950">
+      Job Openings
+    </h2>
+
+    <div className="mt-12 overflow-hidden rounded-3xl border border-gray-200 bg-white">
+      {[
+        {
+          status: "Open",
+          title: "Recruitment for New & Experienced Employees",
+          date: "",
+      
+        },
+      ].map((notice) => (
+        <article
+          key={notice.title}
+          className="grid gap-4 border-b border-gray-100 px-8 py-7 transition hover:bg-gray-50 last:border-b-0 md:grid-cols-[120px_1fr_220px]"
+        >
+          <span
+            className={`inline-flex w-fit rounded-full px-4 py-2 text-sm font-bold ${
+              notice.status === "Open"
+                ? "bg-blue-100 text-blue-700"
+                : "bg-gray-100 text-gray-500"
+            }`}
+          >
+            {notice.status}
+          </span>
+
+          <h3 className="text-xl font-extrabold text-blue-950">
+            {notice.title}
+          </h3>
+
+          <span className="text-sm text-gray-500 md:text-right">
+            {notice.date}
+          </span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
     </main>
   );
 }

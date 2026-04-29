@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function EnglishHomePage() {
+export default function HomeEN() {
   const trackRef = useRef<HTMLDivElement | null>(null);
   const targetX = useRef(0);
   const currentX = useRef(0);
@@ -12,10 +12,10 @@ export default function EnglishHomePage() {
 
   const cards = [
     { title: "About Us", img: "/images/menu-about.png", href: "/en/about" },
-    { title: "IR Information", img: "/images/menu-ir.png", href: "/en/ir" },
     { title: "Business Area", img: "/images/menu-business.png", href: "/en/business" },
-    { title: "Recruit", img: "/images/menu-recruit.png", href: "/en/recruit" },
-    { title: "News Room", img: "/images/menu-news.png", href: "/en/news" },
+    { title: "IR Information", img: "/images/menu-ir.png", href: "/en/ir" },
+    { title: "Notice", img: "/images/menu-news.png", href: "/en/news" },
+    { title: "Recruit Information", img: "/images/menu-recruit.png", href: "/en/recruit" },
     { title: "Contact Us", img: "/images/menu-contact.png", href: "/en/contact" },
   ];
 
@@ -29,7 +29,7 @@ export default function EnglishHomePage() {
     let animationFrame = 0;
 
     const updateTarget = () => {
-      const section = document.getElementById("horizontal-section-en");
+      const section = document.getElementById("horizontal-section");
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
@@ -68,6 +68,7 @@ export default function EnglishHomePage() {
 
   return (
     <main className="bg-[#f7f7f7] text-[#222]">
+      {/* First hero page */}
       <section className="relative flex h-screen items-center overflow-hidden px-12 pr-28">
         <div className="absolute inset-0">
           <img
@@ -75,36 +76,38 @@ export default function EnglishHomePage() {
             alt="Hanil International"
             className="h-full w-full object-cover brightness-90"
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
           <div className="absolute inset-0 bg-[#f7f7f7]/20" />
         </div>
 
         <div className="relative z-10 max-w-5xl pt-24">
-          <p className="text-sm font-semibold tracking-[0.35em] text-blue-700">
-            HANIL INTERNATIONAL
-          </p>
+          <p className="text-3xl font-extrabold tracking-[0.01em] text-blue-700">
+  HANIL INTERNATIONAL
+</p>
 
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight tracking-tight text-blue-950 opacity-0 translate-y-6 animate-fadeUp">
+          <h1 className="mt-1 text-6xl font-extrabold leading-tight text-blue-950">
             Change and Innovation
             <br />
             with ESG 2030
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-blue-950 font-medium drop-shadow-sm">
-            We create new possibilities in global business across energy,
-            steel, chemicals, and new materials.
+          <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-blue-950 drop-shadow-sm">
+            We create new possibilities in global business across energy, steel, chemicals, and new materials.
           </p>
+        </div>
 
-          <div className="mt-14 flex items-center gap-6">
-            <span className="text-xs tracking-[0.35em] text-blue-950 font-semibold">
-              SCROLL
-            </span>
-            <div className="h-px w-40 bg-blue-700" />
-          </div>
+        {/* 세로형 SCROLL */}
+        <div className="absolute bottom-12 right-12 z-10 flex flex-col items-center gap-4">
+          <span className="rotate-90 text-xs font-semibold tracking-[0.35em] text-blue-950">
+            SCROLL
+          </span>
+          <div className="mt-10 h-24 w-px bg-blue-700" />
         </div>
       </section>
 
-      <section id="horizontal-section-en" className="relative h-[700vh]">
+      {/* Horizontal card section */}
+      <section id="horizontal-section" className="relative h-[700vh]">
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <div className="absolute left-0 top-1/2 h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent" />
 

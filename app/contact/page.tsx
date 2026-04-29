@@ -41,10 +41,10 @@ export default function ContactPage() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            CONTACT US
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            문의하기
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            CONTACT US
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             한일인터내셔널과의 협업, 사업 문의, IR 문의를 언제든지 환영합니다.
@@ -59,7 +59,7 @@ export default function ContactPage() {
       
 
       {/* 지도 */}
-      <section className="bg-gray-50 px-12 py-24">
+      <section className="mx-auto max-w-7xl px-12 py-24">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
@@ -87,6 +87,25 @@ export default function ContactPage() {
               <p className="mt-4 text-2xl font-extrabold text-blue-950">
                 02-6958-3500
               </p>
+              <a
+  href="https://www.youtube.com/@user-qc2sw1nl8y"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 inline-flex items-center gap-3 text-red-500 hover:text-gray-600 transition"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="h-6 w-6"
+  >
+    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.5V8.5l6.2 3.5-6.2 3.5z" />
+  </svg>
+
+  <span className="text-sm font-medium">
+    YouTube Channel
+  </span>
+</a>
             </div>
           </div>
 
@@ -103,7 +122,7 @@ export default function ContactPage() {
       </section>
 
       {/* 신고하기 */}
-      <section className="bg-white px-12 py-20">
+      <section className="mx-auto max-w-7xl px-12 py-24">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-10 border-t border-gray-200 pt-16">
           <div className="flex items-center gap-8">
             <h2 className="text-5xl font-extrabold text-blue-700">

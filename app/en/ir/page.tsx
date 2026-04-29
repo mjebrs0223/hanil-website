@@ -27,10 +27,10 @@ export default function IRPageEN() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            IR INFORMATION
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            Financial Information
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            IR INFORMATION
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             We provide transparent financial and disclosure information
@@ -69,7 +69,7 @@ export default function IRPageEN() {
         </div>
       </section>
 
-      <section className="bg-gray-50 px-12 py-24">
+     <section className="mx-auto max-w-7xl px-12 py-24">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             DISCLOSURE & NOTICE

@@ -54,10 +54,10 @@ export default function BusinessPage() {
 
         <div className="relative z-10 max-w-5xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            BUSINESS AREA
+            
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-950">
-            주요 사업
+          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+            BUSINESS AREA
           </h1>
           <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
             한일인터내셔널은 에너지, 철강, 화학 및 신성장 분야에서
@@ -99,7 +99,7 @@ export default function BusinessPage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 px-12 py-24">
+      <section className="mx-auto max-w-7xl px-12 py-24">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             BUSINESS PORTFOLIO
