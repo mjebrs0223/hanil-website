@@ -76,8 +76,8 @@ export default function SiteHeader() {
             onClick={() => setOpen(false)}
           />
 
-          <div className="fixed right-0 top-0 z-[100] flex h-full w-full flex-col bg-white shadow-2xl lg:w-[60%] lg:flex-row">
-            <div className="flex w-full flex-col justify-between bg-white lg:w-[38%]">
+          <div className="fixed right-0 top-0 z-[100] flex h-full w-full flex-col-reverse overflow-y-auto bg-white shadow-2xl lg:w-[60%] lg:flex-row">
+            <div className="flex w-full flex-none flex-col justify-between bg-white lg:w-[38%]">
               <div className="flex flex-1 items-center justify-center px-12">
                 <img
                   src={isEN ? "/images/hanil-logo-en.png" : "/images/hanil-logo.png"}
@@ -134,7 +134,7 @@ export default function SiteHeader() {
               </div>
             </div>
 
-            <div className="flex flex-1 items-start overflow-y-auto bg-[#3f4352] px-8 py-24 text-white lg:items-center lg:px-20 lg:py-0">
+            <div className="flex flex-none bg-[#3f4352] px-8 pb-12 pt-28 text-white lg:flex-1 lg:items-center lg:px-20 lg:py-0">
               <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2 lg:gap-x-20 lg:gap-y-16">
                 <MenuGroup
   title="ABOUT US"
