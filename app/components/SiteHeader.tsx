@@ -29,7 +29,7 @@ export default function SiteHeader() {
           />
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-3">
           {!open && (
             <>
               <div className="group relative pb-6 text-sm font-semibold text-blue-950">
