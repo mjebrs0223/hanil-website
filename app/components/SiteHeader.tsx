@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false)
+  
   const pathname = usePathname();
 
   const isEN = pathname.startsWith("/en");
@@ -17,6 +17,8 @@ export default function SiteHeader() {
 
   const krHref = currentPath;
   const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
+
+  
 
   return (
     <>
@@ -32,32 +34,39 @@ export default function SiteHeader() {
         <div className="flex items-center gap-8">
           {!open && (
             <>
-              <div className="group relative pb-6 text-sm font-semibold text-blue-950">
+              <div className="group relative text-sm font-semibold text-blue-950">
                 <button type="button">FAMILY SITE</button>
 
-                <div className="pointer-events-none absolute right-0 top-6 w-64 pt-4 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                <div className="pointer-events-none absolute right-0 top-5 w-64 pt-5 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
                   <div className="rounded-xl bg-white p-4 shadow-xl">
                     <FamilyLink href="https://www.hanil.com">
                       {isEN ? "Hanil Holdings" : "한일홀딩스"}
                     </FamilyLink>
+
                     <FamilyLink href="https://www.hanilcement.com">
                       {isEN ? "Hanil Cement" : "한일시멘트"}
                     </FamilyLink>
+
                     <FamilyLink href="https://www.hanilind.co.kr">
                       {isEN ? "Hanil Industrial" : "한일산업"}
                     </FamilyLink>
+
                     <FamilyLink href="http://www.hanilcm.com">
                       {isEN ? "Hanil L&C" : "한일L&C"}
                     </FamilyLink>
+
                     <FamilyLink href="http://hanilcenc.com">
                       {isEN ? "Hanil E&C" : "한일E&C"}
                     </FamilyLink>
+
                     <FamilyLink href="https://www.hanilvc.com">
                       {isEN ? "Hanil VC" : "한일VC"}
                     </FamilyLink>
+
                     <FamilyLink href="https://seoulland.co.kr">
                       {isEN ? "Seoul Land" : "서울랜드"}
                     </FamilyLink>
+
                     <FamilyLink href="https://skyranch.co.kr">
                       {isEN ? "Sky Ranch" : "하늘목장"}
                     </FamilyLink>
@@ -68,14 +77,20 @@ export default function SiteHeader() {
               <div className="flex items-center gap-3 text-sm font-medium text-blue-950">
                 <Link
                   href={krHref}
-                  className={!isEN ? "font-extrabold underline underline-offset-4" : ""}
+                  className={
+                    !isEN ? "font-extrabold underline underline-offset-4" : ""
+                  }
                 >
                   KR
                 </Link>
+
                 <span className="h-3 w-px bg-blue-950/30" />
+
                 <Link
                   href={enHref}
-                  className={isEN ? "font-extrabold underline underline-offset-4" : ""}
+                  className={
+                    isEN ? "font-extrabold underline underline-offset-4" : ""
+                  }
                 >
                   EN
                 </Link>
@@ -121,8 +136,6 @@ export default function SiteHeader() {
               </div>
 
               <div className="bg-blue-700 px-12 py-12 text-white">
-                
-
                 <p className="text-sm font-semibold">
                   {isEN ? "TEL" : "대표번호"}
                 </p>
@@ -132,6 +145,7 @@ export default function SiteHeader() {
                   <p className="font-semibold">
                     {isEN ? "CEO · Park Jihoon" : "대표이사 · 박지훈"}
                   </p>
+
                   <p>
                     {isEN ? (
                       <>
@@ -147,6 +161,7 @@ export default function SiteHeader() {
                       </>
                     )}
                   </p>
+
                   <p className="mt-8 text-white/70">
                     COPYRIGHT © HANIL INTERNATIONAL.
                   </p>
@@ -160,7 +175,10 @@ export default function SiteHeader() {
                   title="ABOUT US"
                   href={isEN ? "/en/about" : "/about"}
                   items={[
-                    [isEN ? "Company Overview" : "회사소개", isEN ? "/en/about" : "/about"],
+                    [
+                      isEN ? "Company Overview" : "회사소개",
+                      isEN ? "/en/about" : "/about",
+                    ],
                   ]}
                   onClose={() => setOpen(false)}
                 />
@@ -169,8 +187,14 @@ export default function SiteHeader() {
                   title="IR INFORMATION"
                   href={isEN ? "/en/ir" : "/ir"}
                   items={[
-                    [isEN ? "Financial Information" : "재무정보", isEN ? "/en/ir" : "/ir"],
-                    [isEN ? "Disclosure" : "공시정보", isEN ? "/en/ir" : "/ir"],
+                    [
+                      isEN ? "Financial Information" : "재무정보",
+                      isEN ? "/en/ir" : "/ir",
+                    ],
+                    [
+                      isEN ? "Disclosure" : "공시정보",
+                      isEN ? "/en/ir" : "/ir",
+                    ],
                   ]}
                   onClose={() => setOpen(false)}
                 />
@@ -182,7 +206,10 @@ export default function SiteHeader() {
                     [isEN ? "Energy" : "에너지", isEN ? "/en/business" : "/business"],
                     [isEN ? "Steel" : "철강", isEN ? "/en/business" : "/business"],
                     [isEN ? "Chemical" : "화학", isEN ? "/en/business" : "/business"],
-                    [isEN ? "New Materials" : "신소재", isEN ? "/en/business" : "/business"],
+                    [
+                      isEN ? "New Materials" : "신소재",
+                      isEN ? "/en/business" : "/business",
+                    ],
                   ]}
                   onClose={() => setOpen(false)}
                 />
@@ -191,9 +218,18 @@ export default function SiteHeader() {
                   title="RECRUIT"
                   href={isEN ? "/en/recruit" : "/recruit"}
                   items={[
-                    [isEN ? "Recruitment" : "채용정보", isEN ? "/en/recruit" : "/recruit"],
-                    [isEN ? "Process" : "채용절차", isEN ? "/en/recruit" : "/recruit"],
-                    [isEN ? "Benefits" : "복리후생", isEN ? "/en/recruit" : "/recruit"],
+                    [
+                      isEN ? "Recruitment" : "채용정보",
+                      isEN ? "/en/recruit" : "/recruit",
+                    ],
+                    [
+                      isEN ? "Process" : "채용절차",
+                      isEN ? "/en/recruit" : "/recruit",
+                    ],
+                    [
+                      isEN ? "Benefits" : "복리후생",
+                      isEN ? "/en/recruit" : "/recruit",
+                    ],
                   ]}
                   onClose={() => setOpen(false)}
                 />

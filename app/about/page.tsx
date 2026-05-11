@@ -47,7 +47,7 @@ export default function AboutPage() {
             href="/"
             className="mt-10 inline-block font-semibold text-blue-700"
           >
-            ← Home
+            
           </Link>
         </div>
       </section>

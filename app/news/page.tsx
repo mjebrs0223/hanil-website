@@ -7,11 +7,7 @@ export default function NewsPage() {
       title: "한일인터내셔널 홈페이지 리뉴얼 안내",
       date: "2026.03.30",
     },
-    {
-      category: "BUSINESS",
-      title: "글로벌 사업 포트폴리오 확대",
-      date: "2026.03.15",
-    },
+    
     {
       category: "ESG",
       title: "Change and Innovation with ESG 2030",
@@ -43,7 +39,7 @@ export default function NewsPage() {
           </p>
 
           <Link href="/" className="mt-10 inline-block font-semibold text-blue-700">
-            ← Home
+            
           </Link>
         </div>
       </section>

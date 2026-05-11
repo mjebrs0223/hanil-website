@@ -65,7 +65,7 @@ export default function BusinessPageEN() {
           </p>
 
           <Link href="/en" className="mt-10 inline-block font-semibold text-blue-700">
-            ← Home
+            
           </Link>
         </div>
       </section>

@@ -8,10 +8,17 @@ export default function IRPageEN() {
   ];
 
   const notices = [
-    "2024 Financial Statement Notice",
-    "Audit Report",
-    "Disclosure Information",
-  ];
+  {
+    title: "2024 Financial Statement Announcement",
+    href: "/files/2024-settlement-en.pdf",
+    external: false,
+  },
+  
+  {
+    title: "Electronic Disclosure System (DART)",
+    href: "https://englishdart.fss.or.kr/",
+  },
+];
 
   return (
     <main className="bg-white text-[#222]">
@@ -38,7 +45,7 @@ export default function IRPageEN() {
           </p>
 
           <Link href="/en" className="mt-10 inline-block font-semibold text-blue-700">
-            ← Home
+            
           </Link>
         </div>
       </section>
@@ -80,16 +87,22 @@ export default function IRPageEN() {
 
           <div className="mt-12 overflow-hidden rounded-3xl border border-gray-200 bg-white">
             {notices.map((notice) => (
-              <div
-                key={notice}
-                className="flex items-center justify-between border-b border-gray-100 px-8 py-6 last:border-b-0"
-              >
-                <span className="text-lg font-semibold text-gray-800">
-                  {notice}
-                </span>
-                <span className="text-sm font-bold text-blue-700">VIEW →</span>
-              </div>
-            ))}
+  <a
+    key={notice.title}
+    href={notice.href}
+    target={notice.external ? "_blank" : undefined}
+    rel={notice.external ? "noopener noreferrer" : undefined}
+    className="group flex items-center justify-between border-b border-gray-100 px-8 py-6 transition hover:bg-gray-50 last:border-b-0"
+  >
+    <span className="text-lg font-semibold text-gray-800">
+      {notice.title}
+    </span>
+
+    <span className="text-sm font-bold text-blue-700 transition group-hover:translate-x-1">
+      VIEW →
+    </span>
+  </a>
+))}
           </div>
         </div>
       </section>
