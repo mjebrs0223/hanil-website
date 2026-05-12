@@ -43,16 +43,15 @@ export default function ContactPage() {
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+          <h1 className="mt-6 whitespace-normal text-4xl font-extrabold leading-tight text-blue-700 sm:text-5xl lg:mt-8 lg:text-7xl lg:whitespace-nowrap">
             CONTACT US
           </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
-            한일인터내셔널과의 협업, 사업 문의, IR 문의를 언제든지 환영합니다.
+          <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
+            한일인터내셔널과의 협업, 사업 문의, 
+            <br className="sm:hidden" />
+            IR 문의를 언제든지 환영합니다.
           </p>
 
-          <Link href="/" className="mt-10 inline-block font-semibold text-blue-700">
-            
-          </Link>
         </div>
       </section>
 
@@ -74,7 +73,8 @@ export default function ContactPage() {
                 ADDRESS
               </p>
               <p className="mt-4 text-lg leading-8 text-gray-700">
-                (06654) 서울시 서초구 서초동 1587
+                (06654) 
+                <br />서울시 서초구 서초동 1587
                 <br />
                 한일시멘트빌딩 5층
               </p>
@@ -122,41 +122,50 @@ export default function ContactPage() {
       </section>
 
       {/* 신고하기 */}
-      <section className="mx-auto max-w-7xl px-12 py-24">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-10 border-t border-gray-200 pt-16">
-          <div className="flex items-center gap-8">
-            <h2 className="text-5xl font-extrabold text-blue-700">
-              신고하기
-            </h2>
+      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:px-12 lg:py-24">
+  <div className="rounded-[2rem] border border-gray-200 bg-white p-6 shadow-sm sm:p-10 lg:flex lg:items-center lg:justify-between lg:px-14 lg:py-14">
+    
+    {/* LEFT */}
+    <div>
+      <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
+        REPORT
+      </p>
 
-            <div className="h-12 w-px bg-gray-300" />
+      <h2 className="mt-5 text-4xl font-extrabold text-blue-700 sm:text-5xl">
+        신고하기
+      </h2>
 
-            <p className="text-xl font-medium text-gray-800">
-              윤리적 기업문화 정착을 위해 여러분의 소중한 한마디를 기다리고 있습니다.
-            </p>
-          </div>
+      <p className="mt-6 text-[15px] leading-7 text-gray-600 sm:text-lg">
+        윤리적 기업문화 정착을 위해
+        <br />
+        여러분의 소중한 한마디를 기다리고 있습니다.
+      </p>
+    </div>
 
-          <button
-            type="button"
-            onClick={() => setOpenReport(true)}
-            className="rounded-xl bg-blue-600 px-12 py-5 text-lg font-bold text-white transition hover:bg-blue-700"
-          >
-            신고접수 하기
-          </button>
-        </div>
-      </section>
+    {/* RIGHT BUTTON */}
+    <div className="mt-8 lg:mt-0">
+      <button
+        type="button"
+        onClick={() => setOpenReport(true)}
+        className="w-full rounded-2xl bg-blue-700 px-8 py-5 text-base font-bold text-white transition hover:bg-blue-800 sm:w-auto"
+      >
+        신고 접수하기
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* 신고접수 팝업 */}
       {openReport && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 px-6">
+        <div className="fixed inset-0 z-[9999] flex items-end justify-center bg-black/40 px-3 sm:items-center sm:px-6">
           <form
   onSubmit={handleSubmit}
-  className="relative h-[86vh] w-full max-w-5xl overflow-y-auto rounded-3xl bg-white p-12 shadow-2xl"
+  className="relative h-[88vh] w-full max-w-5xl overflow-y-auto rounded-t-3xl bg-white p-6 shadow-2xl sm:h-[86vh] sm:rounded-3xl sm:p-12"
 >
             <button
               type="button"
               onClick={() => setOpenReport(false)}
-              className="absolute right-8 top-8 text-4xl font-light text-gray-500 hover:text-blue-700"
+              className="absolute right-5 top-5 text-4xl font-light text-gray-500 hover:text-blue-700 sm:right-8 sm:top-8"
             >
               ×
             </button>
@@ -164,92 +173,101 @@ export default function ContactPage() {
             <p className="text-lg font-bold text-blue-600">
               Receipt of Report
             </p>
-            <h1 className="mt-3 text-5xl font-extrabold text-[#222]">
+            <h1 className="mt-3 text-3xl font-extrabold text-[#222] sm:text-5xl">
               신고접수
             </h1>
 
-            <section className="mt-14">
-              <h2 className="text-2xl font-bold text-[#222]">제보유형</h2>
+            <section className="mt-10 sm:mt-14">
+  <h2 className="text-xl font-bold text-[#222] sm:text-2xl">
+    제보유형
+  </h2>
 
-              <div className="mt-8 overflow-hidden border-y border-gray-200">
-                <div className="grid grid-cols-[220px_1fr] border-b border-gray-200">
-                  <div className="flex items-center justify-center bg-gray-50 p-6 font-bold">
-                    부정제보
-                  </div>
-                  <div className="p-6 leading-8 text-gray-700">
-                    · 윤리행동준칙 위반사항
-                    <br />
-                    · 임직원의 비위 사실
-                    <br />
-                    · 불법적인 관행 및 부조리
-                  </div>
-                </div>
+  <div className="mt-6 space-y-4 sm:mt-8 sm:space-y-0 sm:overflow-hidden sm:border-y sm:border-gray-200">
+    <div className="rounded-2xl border border-gray-200 bg-white sm:grid sm:grid-cols-[220px_1fr] sm:rounded-none sm:border-0 sm:border-b sm:border-gray-200">
+      <div className="bg-gray-50 p-5 font-bold sm:flex sm:items-center sm:justify-center sm:p-6">
+        부정제보
+      </div>
+      <div className="p-5 leading-8 text-gray-700 sm:p-6">
+        · 윤리행동준칙 위반사항
+        <br />
+        · 임직원의 비위 사실
+        <br />
+        · 불법적인 관행 및 부조리
+      </div>
+    </div>
 
-                <div className="grid grid-cols-[220px_1fr]">
-                  <div className="flex items-center justify-center bg-gray-50 p-6 font-bold">
-                    법위반제보
-                  </div>
-                  <div className="p-6 leading-8 text-gray-700">
-                    · 임직원의 업무수행과정에서 발생한 법규 위반사항
-                    <br />
-                    · 직장내 성희롱 관련
-                  </div>
-                </div>
-              </div>
+    <div className="rounded-2xl border border-gray-200 bg-white sm:grid sm:grid-cols-[220px_1fr] sm:rounded-none sm:border-0">
+      <div className="bg-gray-50 p-5 font-bold sm:flex sm:items-center sm:justify-center sm:p-6">
+        법위반제보
+      </div>
+      <div className="p-5 leading-8 text-gray-700 sm:p-6">
+        · 임직원의 업무수행과정에서 발생한 법규 위반사항
+        <br />
+        · 직장내 성희롱 관련
+      </div>
+    </div>
+  </div>
 
-              <label className="mt-6 inline-flex items-center gap-3 rounded-full bg-gray-100 px-6 py-3 text-gray-700">
-                <input type="checkbox" />
-                익명으로 제보하기
-              </label>
-            </section>
+  <label className="mt-6 inline-flex items-center gap-3 rounded-full bg-gray-100 px-5 py-3 text-sm text-gray-700 sm:px-6">
+    <input type="checkbox" />
+    익명으로 제보하기
+  </label>
+</section>
 
-            <section className="mt-14">
-              <h2 className="text-2xl font-bold text-[#222]">
-                <span className="text-blue-600">[필수]</span> 개인정보 수집 · 이용동의
-              </h2>
+<section className="mt-10 sm:mt-14">
+  <h2 className="text-xl font-bold text-[#222] sm:text-2xl">
+    <span className="text-blue-600">[필수]</span> 개인정보 수집 · 이용동의
+  </h2>
 
-              <p className="mt-5 leading-8 text-gray-700">
-                한일인터내셔널 주식회사는 신고접수 서비스 이용 시 이용자로부터
-                필요한 최소한의 개인정보를 수집하고 있습니다.
-              </p>
+  <p className="mt-5 text-sm leading-7 text-gray-700 sm:text-base sm:leading-8">
+    한일인터내셔널 주식회사는 신고접수 서비스 이용 시 이용자로부터
+    필요한 최소한의 개인정보를 수집하고 있습니다.
+  </p>
 
-              <div className="mt-8 overflow-hidden border-y border-gray-200">
-                <div className="grid grid-cols-[1fr_1fr_160px_180px] bg-gray-50 text-center font-bold">
-                  <div className="p-5">목적</div>
-                  <div className="p-5">항목</div>
-                  <div className="p-5">보유기간</div>
-                  <div className="p-5">동의여부</div>
-                </div>
+  <div className="mt-6 space-y-4 sm:mt-8">
+    <div className="rounded-2xl border border-gray-200 bg-white p-5">
+      <p className="text-sm font-bold text-blue-700">목적</p>
+      <p className="mt-2 text-gray-700">부정제보</p>
 
-                <div className="grid grid-cols-[1fr_1fr_160px_180px] border-t border-gray-200 text-center">
-                  <div className="p-5">부정제보</div>
-                  <div className="p-5">이름, 연락처, 이메일, 제보내용</div>
-                  <div className="p-5">5년</div>
-                  <div className="space-y-2 p-5 text-left">
-                    <label className="block">
-                      <input type="radio" name="agree1" /> 동의함
-                    </label>
-                    <label className="block">
-                      <input type="radio" name="agree1" /> 동의안함
-                    </label>
-                  </div>
-                </div>
+      <p className="mt-5 text-sm font-bold text-blue-700">항목</p>
+      <p className="mt-2 text-gray-700">이름, 연락처, 이메일, 제보내용</p>
 
-                <div className="grid grid-cols-[1fr_1fr_160px_180px] border-t border-gray-200 text-center">
-                  <div className="p-5">접속 빈도 및 서비스 이용 통계</div>
-                  <div className="p-5">접속 로그, 접속 IP 정보</div>
-                  <div className="p-5">5년</div>
-                  <div className="space-y-2 p-5 text-left">
-                    <label className="block">
-                      <input type="radio" name="agree2" /> 동의함
-                    </label>
-                    <label className="block">
-                      <input type="radio" name="agree2" /> 동의안함
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </section>
+      <p className="mt-5 text-sm font-bold text-blue-700">보유기간</p>
+      <p className="mt-2 text-gray-700">5년</p>
+
+      <p className="mt-5 text-sm font-bold text-blue-700">동의여부</p>
+      <div className="mt-2 flex gap-5 text-gray-700">
+        <label>
+          <input type="radio" name="agree1" /> 동의함
+        </label>
+        <label>
+          <input type="radio" name="agree1" /> 동의안함
+        </label>
+      </div>
+    </div>
+
+    <div className="rounded-2xl border border-gray-200 bg-white p-5">
+      <p className="text-sm font-bold text-blue-700">목적</p>
+      <p className="mt-2 text-gray-700">접속 빈도 및 서비스 이용 통계</p>
+
+      <p className="mt-5 text-sm font-bold text-blue-700">항목</p>
+      <p className="mt-2 text-gray-700">접속 로그, 접속 IP 정보</p>
+
+      <p className="mt-5 text-sm font-bold text-blue-700">보유기간</p>
+      <p className="mt-2 text-gray-700">5년</p>
+
+      <p className="mt-5 text-sm font-bold text-blue-700">동의여부</p>
+      <div className="mt-2 flex gap-5 text-gray-700">
+        <label>
+          <input type="radio" name="agree2" /> 동의함
+        </label>
+        <label>
+          <input type="radio" name="agree2" /> 동의안함
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
 
             <section className="mt-14">
               <p className="mb-8 text-right text-sm text-gray-600">
@@ -261,14 +279,14 @@ export default function ContactPage() {
 <ReportInput label="이메일" required name="email" />
 <ReportInput label="연락처" required name="phone" />
 
-                <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+                <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:items-center sm:gap-5">
                   <label className="font-semibold text-gray-700">
                     <span className="text-blue-600">•</span> 제목
                   </label>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row">
                     <select
   name="reportType"
-  className="w-40 rounded-lg border border-gray-300 px-4 py-3"
+  className="w-full rounded-lg border border-gray-300 px-4 py-3"
 >
                       <option>제보유형</option>
                       <option>부정제보</option>
@@ -281,7 +299,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+                <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:items-center sm:gap-5">
                   <label className="font-semibold text-gray-700">첨부파일</label>
                   <input
                     type="file"
@@ -289,7 +307,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div className="grid grid-cols-[120px_1fr] gap-5">
+                <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:items-center sm:gap-5">
                   <label className="pt-3 font-semibold text-gray-700">
                     <span className="text-blue-600">•</span> 제보내용
                   </label>
@@ -326,13 +344,13 @@ function ReportInput({
   name: string;
 }) {
   return (
-    <div className="grid grid-cols-[120px_1fr] items-center gap-5">
+    <div className="grid gap-2 sm:grid-cols-[120px_1fr] sm:items-center sm:gap-5">
       <label className="font-semibold text-gray-700">
         {required && <span className="text-blue-600">•</span>} {label}
       </label>
       <input
         name={name}   // ⭐ 이거 추가
-        className="rounded-lg border border-gray-300 px-4 py-3"
+        className="w-full rounded-lg border border-gray-300 px-4 py-3"
       />
     </div>
   );

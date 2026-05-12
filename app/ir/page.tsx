@@ -15,7 +15,7 @@ export default function IRPage() {
   },
   
   {
-    title: "전자공시시스템 바로가기",
+    title: "전자공시시스템",
     href: "https://dart.fss.or.kr/",
     external: true,
   },
@@ -23,32 +23,28 @@ export default function IRPage() {
 
   return (
     <main className="bg-white text-[#222]">
-      <section className="relative flex min-h-[70vh] items-center px-12 pt-28">
-        <div className="absolute inset-0">
-          <img
-            src="/images/menu-ir.png"
-            alt="IR Information"
-            className="h-full w-full object-cover grayscale brightness-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40" />
-        </div>
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden px-6 pt-24 sm:px-10 lg:min-h-[70vh] lg:px-12 lg:pt-28">
+  <div className="absolute inset-0">
+    <img
+      src="/images/menu-ir.png"
+      alt="IR Information"
+      className="h-full w-full object-cover grayscale brightness-90"
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/40" />
+  </div>
 
-        <div className="relative z-10 max-w-5xl">
-          <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
-            
-          </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
-            IR INFORMATION
-          </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
-            한일인터내셔널의 재무 현황과 공시 정보를 투명하게 제공합니다.
-          </p>
+  <div className="relative z-10 max-w-5xl">
+    <h1 className="mt-6 whitespace-normal text-4xl font-extrabold leading-tight text-blue-700 sm:text-5xl lg:mt-8 lg:text-7xl lg:whitespace-nowrap">
+      IR INFORMATION
+    </h1>
 
-          <Link href="/" className="mt-10 inline-block font-semibold text-blue-700">
-            
-          </Link>
-        </div>
-      </section>
+    <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
+      한일인터내셔널의 재무 현황과 공시 정보를 
+      <br className="sm:hidden" />
+      투명하게 제공합니다.
+    </p>
+  </div>
+</section>
 
       <section className="mx-auto max-w-7xl px-12 py-24">
         <p className="text-sm font-bold tracking-[0.35em] text-blue-700">

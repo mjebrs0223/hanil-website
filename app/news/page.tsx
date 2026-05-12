@@ -31,16 +31,13 @@ export default function NewsPage() {
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+          <h1 className="mt-6 whitespace-nowrap text-5xl font-extrabold leading-tight text-blue-700 sm:text-6xl lg:mt-8 lg:text-7xl">
             NOTICE
           </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
+          <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
             한일인터내셔널의 새로운 소식과 공지사항을 확인하세요.
           </p>
 
-          <Link href="/" className="mt-10 inline-block font-semibold text-blue-700">
-            
-          </Link>
         </div>
       </section>
 

@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+const [familyOpen, setFamilyOpen] = useState(false);
   
   const pathname = usePathname();
 
@@ -22,59 +23,90 @@ export default function SiteHeader() {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-[170] flex w-full items-center justify-between px-12 py-8">
+      <header className="fixed left-0 top-0 z-[170] flex w-full items-start justify-between px-5 py-6 sm:px-8 lg:items-center lg:px-12 lg:py-8">
         <Link href={isEN ? "/en" : "/"} onClick={() => setOpen(false)}>
           <img
-            src={isEN ? "/images/hanil-logo-en.png" : "/images/hanil-logo.png"}
-            alt="HANIL INTERNATIONAL"
-            className="h-10 w-auto object-contain"
-          />
+  src={isEN ? "/images/hanil-logo-en.png" : "/images/hanil-logo.png"}
+  alt="HANIL INTERNATIONAL"
+  className={`h-8 w-auto object-contain transition duration-300 sm:h-9 lg:h-10 ${
+    open ? "brightness-0 invert" : ""
+  }`}
+/>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-start gap-5 sm:gap-6 lg:items-center lg:gap-8">
           {!open && (
             <>
-              <div className="group relative text-sm font-semibold text-blue-950">
-                <button type="button">FAMILY SITE</button>
+              {/* FAMILY SITE */}
+<div className="relative text-sm font-semibold text-blue-950">
+  {/* PC */}
+  <div className="group relative hidden lg:block">
+    <button type="button">
+      FAMILY SITE
+    </button>
 
-                <div className="pointer-events-none absolute right-0 top-5 w-64 pt-5 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-                  <div className="rounded-xl bg-white p-4 shadow-xl">
-                    <FamilyLink href="https://www.hanil.com">
-                      {isEN ? "Hanil Holdings" : "한일홀딩스"}
-                    </FamilyLink>
+    <div className="pointer-events-none absolute right-0 top-8 w-64 translate-y-2 rounded-xl bg-white p-4 opacity-0 shadow-xl transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+      {[
+        ["한일홀딩스", "https://www.hanil.com"],
+        ["한일시멘트", "https://www.hanilcement.com"],
+        ["한일산업", "https://www.hanilind.co.kr"],
+        ["한일L&C", "http://www.hanilcm.com"],
+        ["한일E&C", "http://hanilcenc.com"],
+        ["한일VC", "https://www.hanilvc.com"],
+        ["서울랜드", "https://seoulland.co.kr"],
+        ["하늘목장", "https://skyranch.co.kr"],
+      ].map(([name, link]) => (
+        <a
+          key={name}
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block py-2 text-sm text-gray-700 hover:text-blue-700"
+        >
+          {name}
+        </a>
+      ))}
+    </div>
+  </div>
 
-                    <FamilyLink href="https://www.hanilcement.com">
-                      {isEN ? "Hanil Cement" : "한일시멘트"}
-                    </FamilyLink>
+  {/* MOBILE */}
+  <div className="lg:hidden">
+    <button
+  type="button"
+  onClick={() => setFamilyOpen(!familyOpen)}
+  className="mt-[11.5px] whitespace-nowrap text-[11px] font-bold leading-tight text-blue-950 sm:text-xs lg:mt-0 lg:text-sm"
+>
+  FAMILY SITE
+</button>
 
-                    <FamilyLink href="https://www.hanilind.co.kr">
-                      {isEN ? "Hanil Industrial" : "한일산업"}
-                    </FamilyLink>
+    {familyOpen && (
+      <div className="absolute right-0 top-8 z-[200] w-56 rounded-xl bg-white p-4 shadow-xl">
+        {[
+          ["한일홀딩스", "https://www.hanil.com"],
+          ["한일시멘트", "https://www.hanilcement.com"],
+          ["한일산업", "https://www.hanilind.co.kr"],
+          ["한일L&C", "http://www.hanilcm.com"],
+          ["한일E&C", "http://hanilcenc.com"],
+          ["한일VC", "https://www.hanilvc.com"],
+          ["서울랜드", "https://seoulland.co.kr"],
+          ["하늘목장", "https://skyranch.co.kr"],
+        ].map(([name, link]) => (
+          <a
+            key={name}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block py-2 text-sm text-gray-700"
+          >
+            {name}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</div>
 
-                    <FamilyLink href="http://www.hanilcm.com">
-                      {isEN ? "Hanil L&C" : "한일L&C"}
-                    </FamilyLink>
-
-                    <FamilyLink href="http://hanilcenc.com">
-                      {isEN ? "Hanil E&C" : "한일E&C"}
-                    </FamilyLink>
-
-                    <FamilyLink href="https://www.hanilvc.com">
-                      {isEN ? "Hanil VC" : "한일VC"}
-                    </FamilyLink>
-
-                    <FamilyLink href="https://seoulland.co.kr">
-                      {isEN ? "Seoul Land" : "서울랜드"}
-                    </FamilyLink>
-
-                    <FamilyLink href="https://skyranch.co.kr">
-                      {isEN ? "Sky Ranch" : "하늘목장"}
-                    </FamilyLink>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 text-sm font-medium text-blue-950">
+              <div className="hidden items-center gap-3 text-sm font-medium text-blue-950 lg:flex">
                 <Link
                   href={krHref}
                   className={
@@ -98,23 +130,54 @@ export default function SiteHeader() {
             </>
           )}
 
-          <button
-            type="button"
-            onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center"
-          >
-            {open ? (
-              <span className="text-5xl font-light leading-none text-blue-700">
-                ×
-              </span>
-            ) : (
-              <span className="flex flex-col gap-1">
-                <span className="block h-[2px] w-8 bg-blue-700" />
-                <span className="block h-[2px] w-8 bg-blue-700" />
-                <span className="block h-[2px] w-8 bg-blue-700" />
-              </span>
-            )}
-          </button>
+          {/* 햄버거 + 모바일 언어 */}
+<div className="flex flex-col items-center">
+  {/* 햄버거 버튼 */}
+  <button
+    type="button"
+    onClick={() => setOpen(!open)}
+    className="flex h-8 w-8 items-center justify-center lg:h-10 lg:w-10"
+  >
+    {open ? (
+      <span className="text-5xl font-light leading-none text-blue-700">
+        ×
+      </span>
+    ) : (
+      <span className="flex flex-col gap-1">
+        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+      </span>
+    )}
+  </button>
+
+  {/* 모바일용 KR / EN */}
+{!open && (
+  <div className="mt-2 flex flex-col items-center gap-1 text-[11px] font-medium text-blue-950 lg:hidden">
+    <Link
+      href={krHref}
+      className={
+        !isEN
+          ? "font-extrabold underline underline-offset-4"
+          : ""
+      }
+    >
+      KR
+    </Link>
+
+    <Link
+      href={enHref}
+      className={
+        isEN
+          ? "font-extrabold underline underline-offset-4"
+          : ""
+      }
+    >
+      EN
+    </Link>
+  </div>
+)}
+</div>
         </div>
       </header>
 
@@ -182,6 +245,20 @@ export default function SiteHeader() {
                   ]}
                   onClose={() => setOpen(false)}
                 />
+<MenuGroup
+                  title="BUSINESS AREA"
+                  href={isEN ? "/en/business" : "/business"}
+                  items={[
+                    [isEN ? "Energy" : "에너지", isEN ? "/en/business" : "/business"],
+                    [isEN ? "Steel" : "철강", isEN ? "/en/business" : "/business"],
+                    [isEN ? "Chemical" : "화학", isEN ? "/en/business" : "/business"],
+                    [
+                      isEN ? "New Materials" : "신소재",
+                      isEN ? "/en/business" : "/business",
+                    ],
+                  ]}
+                  onClose={() => setOpen(false)}
+                />
 
                 <MenuGroup
                   title="IR INFORMATION"
@@ -200,21 +277,14 @@ export default function SiteHeader() {
                 />
 
                 <MenuGroup
-                  title="BUSINESS AREA"
-                  href={isEN ? "/en/business" : "/business"}
+                  title="NOTICE"
+                  href={isEN ? "/en/news" : "/news"}
                   items={[
-                    [isEN ? "Energy" : "에너지", isEN ? "/en/business" : "/business"],
-                    [isEN ? "Steel" : "철강", isEN ? "/en/business" : "/business"],
-                    [isEN ? "Chemical" : "화학", isEN ? "/en/business" : "/business"],
-                    [
-                      isEN ? "New Materials" : "신소재",
-                      isEN ? "/en/business" : "/business",
-                    ],
+                    [isEN ? "Resources" : "자료실", isEN ? "/en/news" : "/news"],
                   ]}
                   onClose={() => setOpen(false)}
                 />
-
-                <MenuGroup
+<MenuGroup
                   title="RECRUIT"
                   href={isEN ? "/en/recruit" : "/recruit"}
                   items={[
@@ -233,22 +303,15 @@ export default function SiteHeader() {
                   ]}
                   onClose={() => setOpen(false)}
                 />
-
-                <MenuGroup
-                  title="NEWS ROOM"
-                  href={isEN ? "/en/news" : "/news"}
-                  items={[
-                    [isEN ? "Resources" : "자료실", isEN ? "/en/news" : "/news"],
-                  ]}
-                  onClose={() => setOpen(false)}
-                />
-
                 <MenuGroup
                   title="CONTACT US"
                   href={isEN ? "/en/contact" : "/contact"}
                   items={[]}
                   onClose={() => setOpen(false)}
                 />
+                
+
+                
               </div>
             </div>
           </div>

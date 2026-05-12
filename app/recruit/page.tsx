@@ -26,16 +26,15 @@ export default function RecruitPage() {
           <p className="text-sm font-bold tracking-[0.35em] text-blue-700">
             
           </p>
-          <h1 className="mt-8 text-6xl font-extrabold leading-tight text-blue-700">
+          <h1 className="mt-6 whitespace-nowrap text-5xl font-extrabold leading-tight text-blue-700 sm:text-6xl lg:mt-8 lg:text-7xl">
             RECRUIT
           </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-700">
-            글로벌 무역 전문 기업 한일인터내셔널과 함께 성장할 인재를 기다립니다.
+          <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
+            글로벌 무역 전문 기업 한일인터내셔널과  
+            <br className="sm:hidden" />
+            함께 성장할 인재를 기다립니다.
           </p>
 
-          <Link href="/" className="mt-10 inline-block font-semibold text-blue-700">
-            
-          </Link>
         </div>
       </section>
 
