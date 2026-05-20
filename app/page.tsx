@@ -7,92 +7,93 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   const cards = [
-    {
-      title: "About Us",
-      img: "/images/menu-about.png",
-      href: "/about",
-    },
-    {
-      title: "Business\nArea",
-      img: "/images/menu-business.png",
-      href: "/business",
-    },
-    {
-      title: "IR\nInformation",
-      img: "/images/menu-ir.png",
-      href: "/ir",
-    },
-    {
-      title: "Notice",
-      img: "/images/menu-news.png",
-      href: "/news",
-    },
-    {
-      title: "Recruit\nInformation",
-      img: "/images/menu-recruit.png",
-      href: "/recruit",
-    },
-    {
-      title: "Contact\nUs",
-      img: "/images/menu-contact.png",
-      href: "/contact",
-    },
+    { title: "About Us", img: "/images/menu-about.png", href: "/about" },
+    { title: "Business\nArea", img: "/images/menu-business.png", href: "/business" },
+    { title: "IR\nInformation", img: "/images/menu-ir.png", href: "/ir" },
+    { title: "Notice", img: "/images/menu-news.png", href: "/news" },
+    { title: "Recruit\nInformation", img: "/images/menu-recruit.png", href: "/recruit" },
+    { title: "Contact\nUs", img: "/images/menu-contact.png", href: "/contact" },
   ];
 
   useEffect(() => {
     setMounted(true);
 
     const handleScroll = () => {
-      const section = document.getElementById(
-        "card-carousel-section"
-      );
-
+      const section = document.getElementById("card-carousel-section");
       if (!section) return;
 
       const rect = section.getBoundingClientRect();
-
-      const totalScroll =
-        section.offsetHeight - window.innerHeight;
-
-      const scrolled = Math.min(
-        Math.max(-rect.top, 0),
-        totalScroll
-      );
-
-      const isMobile =
-        typeof window !== "undefined" &&
-        window.innerWidth < 640;
+      const totalScroll = section.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), totalScroll);
 
       const nextProgress =
-        totalScroll > 0
-          ? (scrolled / totalScroll) *
-            (isMobile ? 6 : 6)
-          : 0;
+        totalScroll > 0 ? (scrolled / totalScroll) * (cards.length - 1) : 0;
 
       setProgress(nextProgress);
     };
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
-      window.removeEventListener(
-        "resize",
-        handleScroll
-      );
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [cards.length]);
+  useEffect(() => {
+  let locked = false;
 
+  const handleWheel = (e: WheelEvent) => {
+    const cardSection = document.getElementById("card-carousel-section");
+    if (!cardSection) return;
+
+    const cardTop = cardSection.offsetTop;
+    const currentY = window.scrollY;
+
+    // 메인 → 카드
+    if (currentY < cardTop - 100 && e.deltaY > 0 && !locked) {
+      locked = true;
+      e.preventDefault();
+
+      window.scrollTo({
+        top: cardTop,
+        behavior: "smooth",
+      });
+
+      setTimeout(() => {
+        locked = false;
+      }, 1200);
+    }
+
+    // 카드 초반 → 메인
+    if (
+      currentY >= cardTop - 20 &&
+      currentY <= cardTop + window.innerHeight &&
+      e.deltaY < 0 &&
+      !locked
+    ) {
+      locked = true;
+      e.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      setTimeout(() => {
+        locked = false;
+      }, 1200);
+    }
+  };
+
+  window.addEventListener("wheel", handleWheel, { passive: false });
+
+  return () => {
+    window.removeEventListener("wheel", handleWheel);
+  };
+}, []);
   return (
     <main className="bg-[#f7f7f7] text-[#222]">
       {/* HERO */}
@@ -103,9 +104,7 @@ export default function Home() {
             alt="Hanil International"
             className="h-full w-full object-cover object-[60%_center] brightness-90"
           />
-
           <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/20 to-transparent" />
-
           <div className="absolute inset-0 bg-[#f7f7f7]/20" />
         </div>
 
@@ -122,8 +121,7 @@ export default function Home() {
 
           <p className="mt-6 max-w-2xl text-base leading-7 text-blue-950 sm:text-lg sm:leading-8 lg:mt-8">
             에너지, 철강, 화학 및 신성장 분야를 중심으로
-            글로벌 비즈니스의 새로운 가능성을
-            만들어갑니다.
+            글로벌 비즈니스의 새로운 가능성을 만들어갑니다.
           </p>
         </div>
 
@@ -131,7 +129,6 @@ export default function Home() {
           <span className="rotate-90 text-xs font-semibold tracking-[0.35em] text-blue-950">
             SCROLL
           </span>
-
           <div className="mt-10 h-24 w-px bg-blue-700" />
         </div>
       </section>
@@ -140,138 +137,115 @@ export default function Home() {
       {mounted && (
         <section
           id="card-carousel-section"
-          className="relative h-[420vh] sm:h-[520vh] lg:h-[700vh] bg-[#f7f7f7]"
+          className="relative h-[300vh] bg-[#f7f7f7] sm:h-[360vh] lg:h-[420vh]"
         >
           <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-6 sm:px-10 lg:px-12">
-            {/* orbit lines */}
-            <div className="absolute left-1/2 top-1/2 h-[480px] w-[480px] sm:h-[760px] sm:w-[760px] lg:h-[1040px] lg:w-[1040px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/70" />
+            <div className="absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/70 sm:h-[760px] sm:w-[760px] lg:h-[1040px] lg:w-[1040px]" />
+            <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/60 sm:h-[520px] sm:w-[520px] lg:h-[760px] lg:w-[760px]" />
+            <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/50 sm:h-[360px] sm:w-[360px] lg:h-[520px] lg:w-[520px]" />
 
-            <div className="absolute left-1/2 top-1/2 h-[320px] w-[320px] sm:h-[520px] sm:w-[520px] lg:h-[760px] lg:w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/60" />
-
-            <div className="absolute left-1/2 top-1/2 h-[220px] w-[220px] sm:h-[360px] sm:w-[360px] lg:h-[520px] lg:w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/50" />
-
-            {/* cards */}
             <div className="relative h-[560px] w-full max-w-[1180px]">
               {cards.map((card, index) => {
-                const count = cards.length;
+                const activeIndex = Math.round(progress);
+                const offset = index - activeIndex;
 
-                const angle =
-                  Math.PI / 2 -
-                  (index / count) *
-                    Math.PI *
-                    2 +
-                  progress *
-                    (Math.PI * 2 / count);
+                const snapped =
+  Math.round(progress);
 
-                const isMobile =
-                  typeof window !==
-                    "undefined" &&
-                  window.innerWidth < 640;
+const count = cards.length;
 
-                const radiusX = isMobile
-                  ? 170
-                  : 430;
+const angle =
+  Math.PI / 2 -
+  ((index - snapped) / count) *
+    Math.PI *
+    2;
 
-                const radiusY = isMobile
-                  ? 60
-                  : 115;
+const isMobile =
+  typeof window !== "undefined" &&
+  window.innerWidth < 640;
 
-                const x =
-                  Math.cos(angle) *
-                  radiusX;
+const radiusX = isMobile
+  ? 170
+  : 430;
 
-                const y =
-                  Math.sin(angle) *
-                    radiusY -
-                  70;
+const radiusY = isMobile
+  ? 65
+  : 120;
 
-                const centerScore =
-                  (Math.sin(angle) + 1) / 2;
+const x =
+  Math.cos(angle) * radiusX;
 
-                const scale =
-                  0.62 +
-                  centerScore * 0.62;
+const y =
+  Math.sin(angle) * radiusY - 70;
 
-                const opacity =
-                  0.22 +
-                  centerScore * 0.78;
+const centerScore =
+  (Math.sin(angle) + 1) / 2;
 
-                const blur =
-                  centerScore > 0.55
-                    ? 0
-                    : 2;
+const scale =
+  0.62 + centerScore * 0.42;
 
-                const zIndex =
-                  Math.round(
-                    centerScore * 100
-                  );
+const opacity =
+  0.18 + centerScore * 0.82;
+
+const zIndex =
+  Math.round(centerScore * 100);
+
+const isActive =
+  centerScore > 0.92;
 
                 return (
                   <a
                     key={card.title}
                     href={card.href}
-                    className={`group absolute left-1/2 top-1/2 block h-[260px] w-[180px] sm:h-[300px] sm:w-[210px] lg:h-[370px] lg:w-[258px] overflow-hidden rounded-[2.6rem] bg-white transition-all duration-500 ${
-                      centerScore > 0.75
+                    className={`group absolute left-1/2 top-1/2 block h-[260px] w-[180px] overflow-hidden rounded-[2.6rem] bg-white transition-all duration-500 sm:h-[300px] sm:w-[210px] lg:h-[370px] lg:w-[258px] ${
+                      isActive
                         ? "ring-1 ring-white/80 shadow-[0_50px_130px_rgba(30,80,160,0.32)]"
                         : "shadow-[0_22px_70px_rgba(0,0,0,0.14)]"
                     }`}
                     style={{
-                      zIndex,
-                      opacity,
-                      filter: `blur(${blur}px)`,
-                      transform: `
-                        translate3d(
-                          calc(-50% + ${x}px),
-                          calc(-50% + ${y}px),
-                          0
-                        )
-                        scale(${scale})
-                      `,
-                      transition:
-                        "transform 0.16s linear, opacity 0.16s linear, filter 0.16s linear",
-                    }}
+  zIndex,
+  opacity,
+  transform: `
+    translate3d(
+      calc(-50% + ${x}px),
+      calc(-50% + ${y}px),
+      0
+    )
+    scale(${scale})
+  `,
+  transition:
+    "transform 0.7s cubic-bezier(0.22,1,0.36,1), opacity 0.5s ease",
+}}
                   >
-                    {/* image */}
                     <img
                       src={card.img}
                       alt={card.title}
                       className="h-full w-full object-cover brightness-95 saturate-90 transition duration-700 group-hover:scale-110 group-hover:brightness-105"
                     />
 
-                    {/* overlay */}
                     <div
                       className={`absolute inset-0 transition duration-500 ${
-                        centerScore > 0.75
+                        isActive
                           ? "bg-gradient-to-b from-white/20 via-white/5 to-white/60"
                           : "bg-blue-950/35 group-hover:bg-blue-950/48"
                       }`}
                     />
 
-                    {/* title */}
-                    <div className="absolute left-6 top-6 right-6 sm:left-8 sm:top-8 sm:right-8">
+                    <div className="absolute left-6 right-6 top-6 sm:left-8 sm:right-8 sm:top-8">
                       <h2
                         className={`whitespace-pre-line font-extrabold leading-[1.08] drop-shadow transition-colors duration-500 ${
-                          card.title.includes(
-                            "Information"
-                          )
+                          card.title.includes("Information")
                             ? "text-[1.1rem] sm:text-[1.4rem] lg:text-[1.75rem]"
                             : "text-[1.4rem] sm:text-[1.7rem] lg:text-[2.25rem]"
-                        } ${
-                          centerScore > 0.75
-                            ? "text-blue-950"
-                            : "text-white"
-                        }`}
+                        } ${isActive ? "text-blue-950" : "text-white"}`}
                       >
                         {card.title}
                       </h2>
                     </div>
 
-                    {/* view */}
                     <div
                       className={`absolute bottom-6 left-6 flex items-center gap-3 transition-colors duration-500 sm:bottom-8 sm:left-8 sm:gap-4 ${
-                        centerScore > 0.75
-                          ? "text-slate-500"
-                          : "text-white"
+                        isActive ? "text-slate-500" : "text-white"
                       }`}
                     >
                       <span className="text-xs font-bold tracking-[0.24em] sm:text-sm">
@@ -280,32 +254,24 @@ export default function Home() {
 
                       <div
                         className={`h-px w-10 transition-all duration-500 group-hover:w-20 sm:w-12 sm:group-hover:w-24 ${
-                          centerScore > 0.75
-                            ? "bg-slate-400"
-                            : "bg-white/80"
+                          isActive ? "bg-slate-400" : "bg-white/80"
                         }`}
                       />
 
-                      <span className="text-lg sm:text-xl">
-                        →
-                      </span>
+                      <span className="text-lg sm:text-xl">→</span>
                     </div>
                   </a>
                 );
               })}
             </div>
 
-            {/* scroll icon */}
             <div className="absolute bottom-10 left-1/2 z-30 hidden -translate-x-1/2 flex-col items-center lg:flex">
               <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-blue-700 p-1">
                 <div
                   className="h-2 w-2 rounded-full bg-blue-700"
                   style={{
-                    transform: `translateY(${
-                      progress * 3
-                    }px)`,
-                    transition:
-                      "transform 0.12s linear",
+                    transform: `translateY(${progress * 3}px)`,
+                    transition: "transform 0.12s linear",
                   }}
                 />
               </div>
