@@ -41,11 +41,16 @@ const [familyOpen, setFamilyOpen] = useState(false);
 <div className="relative text-sm font-semibold text-blue-950">
   {/* PC */}
   <div className="group relative hidden lg:block">
-    <button type="button">
-      FAMILY SITE
-    </button>
+  <button
+    type="button"
+    className="whitespace-nowrap text-sm font-bold leading-none text-blue-950"
+  >
+    FAMILY SITE
+  </button>
 
-    <div className="pointer-events-none absolute right-0 top-8 w-64 translate-y-2 rounded-xl bg-white p-4 opacity-0 shadow-xl transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+  <div className="absolute right-0 top-full h-4 w-64" />
+
+  <div className="pointer-events-none absolute right-0 top-full mt-4 w-64 rounded-xl bg-white p-4 opacity-0 shadow-xl transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
       {[
         ["한일홀딩스", "https://www.hanil.com"],
         ["한일시멘트", "https://www.hanilcement.com"],
