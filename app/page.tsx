@@ -119,10 +119,21 @@ export default function Home() {
             with ESG 2030
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-blue-950 sm:text-lg sm:leading-8 lg:mt-8">
-            에너지, 철강, 화학 및 신성장 분야를 중심으로
-            글로벌 비즈니스의 새로운 가능성을 만들어갑니다.
-          </p>
+          <p className="mt-6 max-w-[42rem] text-base leading-7 text-blue-950 sm:text-lg sm:leading-8 lg:mt-8">
+  <span className="hidden sm:inline">
+    에너지, 철강, 화학 및 신성장 분야를 중심으로 
+    <br />
+    글로벌 비즈니스의 새로운 가능성을 만들어갑니다.
+  </span>
+
+  <span className="inline sm:hidden">
+    에너지, 철강, 화학 및 신성장 분야를
+    <br />
+    중심으로 글로벌 비즈니스의
+    <br />
+    새로운 가능성을 만들어갑니다.
+  </span>
+</p>
         </div>
 
         <div className="absolute bottom-12 right-12 z-10 hidden flex-col items-center gap-4 lg:flex">

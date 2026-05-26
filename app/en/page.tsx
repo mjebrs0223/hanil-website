@@ -119,10 +119,24 @@ export default function HomeEN() {
             with ESG 2030
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-blue-950 sm:text-lg sm:leading-8 lg:mt-8">
-            Creating new possibilities in global business across energy,
-            steel, chemical and new growth industries.
-          </p>
+          <p className="mt-6 max-w-[42rem] text-base leading-7 text-blue-950 sm:text-lg sm:leading-8 lg:mt-8">
+  <span className="hidden sm:inline">
+    Creating new possibilities in global business across energy,
+    steel, chemical 
+    <br />
+    and new growth industries.
+  </span>
+
+  <span className="inline sm:hidden">
+    Creating new possibilities
+    <br />
+    in global business across
+    <br />
+    energy, steel, chemical
+    <br />
+    and new growth industries.
+  </span>
+</p>
         </div>
 
         <div className="absolute bottom-12 right-12 z-10 hidden flex-col items-center gap-4 lg:flex">
