@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../../components/TopButton";
 
 export default function BusinessPageEN() {
   const businesses = [
@@ -123,6 +124,7 @@ export default function BusinessPageEN() {
           </p>
         </div>
       </section>
+      <TopButton />
     </main>
   );
 }

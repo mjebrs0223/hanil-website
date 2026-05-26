@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../components/TopButton";
 
 export default function AboutPage() {
   const companyInfo = [
@@ -129,6 +130,7 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+      <TopButton />
     </main>
   );
 }

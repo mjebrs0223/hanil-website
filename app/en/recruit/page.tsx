@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../../components/TopButton";
 
 export default function RecruitPageEN() {
   const process = [
@@ -186,6 +187,7 @@ export default function RecruitPageEN() {
           </div>
         </div>
       </section>
+      <TopButton />
     </main>
   );
 }

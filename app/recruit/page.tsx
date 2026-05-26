@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../components/TopButton";
 
 export default function RecruitPage() {
   const process = ["입사지원", "서류전형", "면접", "신체검사", "입사"];
@@ -161,6 +162,7 @@ export default function RecruitPage() {
     </div>
   </div>
 </section>  
+<TopButton />
     </main>
   );
 }

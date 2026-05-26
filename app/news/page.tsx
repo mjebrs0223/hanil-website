@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../components/TopButton";
 
 export default function NewsPage() {
   const newsList = [
@@ -68,6 +69,7 @@ export default function NewsPage() {
           ))}
         </div>
       </section>
+      <TopButton />
     </main>
   );
 }

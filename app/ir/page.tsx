@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TopButton from "../components/TopButton";
 
 export default function IRPage() {
   const financials = [
@@ -102,6 +103,7 @@ export default function IRPage() {
           </div>
         </div>
       </section>
+      <TopButton />
     </main>
   );
 }

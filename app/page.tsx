@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import TopButton from "./components/TopButton";
 export default function Home() {
   const [progress, setProgress] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -294,6 +294,7 @@ const isActive =
           </div>
         </section>
       )}
-    </main>
+      <TopButton />
+      </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import TopButton from "../components/TopButton";
 
 export default function HomeEN() {
   const [progress, setProgress] = useState(0);
@@ -272,6 +273,7 @@ export default function HomeEN() {
           </div>
         </section>
       )}
+      <TopButton />
     </main>
   );
 }

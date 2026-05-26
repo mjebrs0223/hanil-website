@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import TopButton from "../../components/TopButton";
 
 export default function ContactPageEN() {
   const [openReport, setOpenReport] = useState(false);
@@ -404,6 +405,7 @@ export default function ContactPageEN() {
           </form>
         </div>
       )}
+      <TopButton />
     </main>
   );
 }
