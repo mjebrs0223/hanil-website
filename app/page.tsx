@@ -26,8 +26,14 @@ export default function Home() {
       const totalScroll = section.offsetHeight - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), totalScroll);
 
-      const nextProgress =
-        totalScroll > 0 ? (scrolled / totalScroll) * (cards.length - 1) : 0;
+      const rotations = 3;
+
+const nextProgress =
+  totalScroll > 0
+    ? (scrolled / totalScroll) *
+      (cards.length - 1) *
+      rotations
+    : 0;
 
       setProgress(nextProgress);
     };
@@ -148,7 +154,7 @@ export default function Home() {
       {mounted && (
         <section
           id="card-carousel-section"
-          className="relative h-[300vh] bg-[#f7f7f7] sm:h-[360vh] lg:h-[420vh]"
+          className="relative h-[420vh] sm:h-[520vh] lg:h-[620vh]"
         >
           <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-6 sm:px-10 lg:px-12">
             <div className="absolute left-1/2 top-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-100/70 sm:h-[760px] sm:w-[760px] lg:h-[1040px] lg:w-[1040px]" />
@@ -175,13 +181,8 @@ const isMobile =
   typeof window !== "undefined" &&
   window.innerWidth < 640;
 
-const radiusX = isMobile
-  ? 170
-  : 430;
-
-const radiusY = isMobile
-  ? 65
-  : 120;
+const radiusX = isMobile ? 190 : 560;
+const radiusY = isMobile ? 75 : 160;
 
 const x =
   Math.cos(angle) * radiusX;
@@ -281,7 +282,7 @@ const isActive =
                 <div
                   className="h-2 w-2 rounded-full bg-blue-700"
                   style={{
-                    transform: `translateY(${progress * 3}px)`,
+                    transform: `translateY(${Math.min(progress * 2, 22)}px)`,
                     transition: "transform 0.12s linear",
                   }}
                 />
