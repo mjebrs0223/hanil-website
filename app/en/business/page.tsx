@@ -63,7 +63,8 @@ export default function BusinessPageEN() {
           <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
             Building stable supply chains across
             <br className="sm:hidden" />
-            energy, steel, chemical and new materials
+            energy, steel, chemical 
+            <br />and new materials
             <br className="sm:hidden" />
             industries worldwide.
           </p>

@@ -51,7 +51,9 @@ export default function ContactPageEN() {
           <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
             We welcome inquiries regarding partnerships,
             <br className="sm:hidden" />
-            business opportunities and IR communications.
+            business opportunities 
+            <br />
+            and IR communications.
           </p>
         </div>
       </section>
@@ -65,7 +67,7 @@ export default function ContactPageEN() {
             </p>
 
             <h2 className="mt-5 text-4xl font-extrabold text-blue-950">
-              Visit Us
+              VISIT US
             </h2>
 
             <div className="mt-10 rounded-3xl bg-white p-8 shadow-sm">

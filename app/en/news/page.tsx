@@ -38,7 +38,7 @@ export default function NewsPageEN() {
           <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
             Stay updated with the latest news
             <br className="sm:hidden" />
-            and announcements from Hanil International.
+            and announcements from HANIL INTERNATIONAL.
           </p>
         </div>
       </section>

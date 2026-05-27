@@ -11,7 +11,7 @@ export default function IRPageEN() {
   const notices = [
     {
       title: "2024 Financial Statement Announcement",
-      href: "/files/2024-settlement.pdf",
+      href: "/files/2024-settlement-en.pdf",
       external: false,
     },
     {

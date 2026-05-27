@@ -66,7 +66,9 @@ export default function AboutPageEN() {
           <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg lg:mt-8 lg:text-xl lg:leading-9">
             Hanil International creates new possibilities 
             <br className="sm:hidden" />
-            across energy, steel, chemical and new growth industries.
+            across energy, steel, chemical 
+            <br />
+            and new growth industries.
           </p>
         </div>
       </section>
