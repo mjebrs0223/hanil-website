@@ -4,112 +4,90 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+
+
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
-const [familyOpen, setFamilyOpen] = useState(false);
-  
+  const [familyOpen, setFamilyOpen] = useState(false);
+
   const pathname = usePathname();
-
   const isEN = pathname.startsWith("/en");
+  const familySites = isEN
+  ? [
+      ["Hanil Holdings", "https://www.hanil.com/eng/main.do"],
+      ["Hanil Cement", "https://www.hanilcement.com/en/html/mi_01.html"],
+      ["Hanil Industry", "https://www.hanilind.co.kr"],
+      ["Hanil L&C", "http://www.hanilcm.com"],
+      ["Hanil E&C", "http://hanilcenc.com"],
+      ["Hanil VC", "https://www.hanilvc.com"],
+      ["Seoul Land", "https://seoulland.co.kr"],
+      ["Sky Ranch", "https://skyranch.co.kr"],
+    ]
+  : [
+      ["한일홀딩스", "https://www.hanil.com"],
+      ["한일시멘트", "https://www.hanilcement.com"],
+      ["한일산업", "https://www.hanilind.co.kr"],
+      ["한일L&C", "http://www.hanilcm.com"],
+      ["한일E&C", "http://hanilcenc.com"],
+      ["한일VC", "https://www.hanilvc.com"],
+      ["서울랜드", "https://seoulland.co.kr"],
+      ["하늘목장", "https://skyranch.co.kr"],
+    ];
 
-  const currentPath = isEN
-    ? pathname.replace(/^\/en/, "") || "/"
-    : pathname;
-
+  const currentPath = isEN ? pathname.replace(/^\/en/, "") || "/" : pathname;
   const krHref = currentPath;
   const enHref = currentPath === "/" ? "/en" : `/en${currentPath}`;
-
-  
 
   return (
     <>
       <header className="fixed left-0 top-0 z-[170] flex w-full items-start justify-between px-5 py-6 sm:px-8 lg:items-center lg:px-12 lg:py-8">
         <Link href={isEN ? "/en" : "/"} onClick={() => setOpen(false)}>
           <img
-  src={isEN ? "/images/hanil-logo-en.png" : "/images/hanil-logo.png"}
-  alt="HANIL INTERNATIONAL"
-  className={`h-8 w-auto object-contain transition duration-300 sm:h-9 lg:h-10 ${
-    open ? "brightness-0 invert" : ""
-  }`}
-/>
+            src={isEN ? "/images/hanil-logo-en.png" : "/images/hanil-logo.png"}
+            alt="HANIL INTERNATIONAL"
+            className={`h-8 w-auto object-contain transition duration-300 sm:h-9 lg:h-10 ${
+              open ? "brightness-0 invert" : ""
+            }`}
+          />
         </Link>
 
         <div className="flex items-start gap-5 sm:gap-6 lg:items-center lg:gap-8">
           {!open && (
             <>
               {/* FAMILY SITE */}
-<div className="relative text-sm font-semibold text-blue-950">
-  {/* PC */}
-  <div className="group relative hidden lg:block">
-  <button
-    type="button"
-    className="whitespace-nowrap text-sm font-bold leading-none text-blue-950"
-  >
-    FAMILY SITE
-  </button>
-
-  <div className="absolute right-0 top-full h-4 w-64" />
-
-  <div className="pointer-events-none absolute right-0 top-full mt-4 w-64 rounded-xl bg-white p-4 opacity-0 shadow-xl transition duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
-      {[
-        ["한일홀딩스", "https://www.hanil.com"],
-        ["한일시멘트", "https://www.hanilcement.com"],
-        ["한일산업", "https://www.hanilind.co.kr"],
-        ["한일L&C", "http://www.hanilcm.com"],
-        ["한일E&C", "http://hanilcenc.com"],
-        ["한일VC", "https://www.hanilvc.com"],
-        ["서울랜드", "https://seoulland.co.kr"],
-        ["하늘목장", "https://skyranch.co.kr"],
-      ].map(([name, link]) => (
-        <a
-          key={name}
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block py-2 text-sm text-gray-700 hover:text-blue-700"
-        >
-          {name}
-        </a>
-      ))}
-    </div>
-  </div>
-
-  {/* MOBILE */}
-  <div className="lg:hidden">
-    <button
-  type="button"
-  onClick={() => setFamilyOpen(!familyOpen)}
-  className="mt-[11.5px] whitespace-nowrap text-[11px] font-bold leading-tight text-blue-950 sm:text-xs lg:mt-0 lg:text-sm"
+              <div
+  className="relative"
+  onMouseEnter={() => setFamilyOpen(true)}
+  onMouseLeave={() => setFamilyOpen(false)}
 >
-  FAMILY SITE
-</button>
+                <button
+                  type="button"
+                  onClick={() => setFamilyOpen((prev) => !prev)}
+                  className="mt-[11.5px] whitespace-nowrap text-[11px] font-bold leading-tight text-blue-950 sm:text-xs lg:mt-0 lg:text-sm"
+                >
+                  FAMILY SITE
+                </button>
 
-    {familyOpen && (
-      <div className="absolute right-0 top-8 z-[200] w-56 rounded-xl bg-white p-4 shadow-xl">
-        {[
-          ["한일홀딩스", "https://www.hanil.com"],
-          ["한일시멘트", "https://www.hanilcement.com"],
-          ["한일산업", "https://www.hanilind.co.kr"],
-          ["한일L&C", "http://www.hanilcm.com"],
-          ["한일E&C", "http://hanilcenc.com"],
-          ["한일VC", "https://www.hanilvc.com"],
-          ["서울랜드", "https://seoulland.co.kr"],
-          ["하늘목장", "https://skyranch.co.kr"],
-        ].map(([name, link]) => (
-          <a
-            key={name}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block py-2 text-sm text-gray-700"
-          >
-            {name}
-          </a>
-        ))}
-      </div>
-    )}
-  </div>
+                {familyOpen && (
+                  <div className="absolute right-0 top-full z-[300] pt-3 lg:w-64">
+  <div className="w-56 rounded-xl bg-white p-4 shadow-xl lg:w-64">
+                    {familySites.map(([name, link]) => (
+                      <a
+                        key={name}
+                        href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block py-2 text-sm text-gray-700 transition hover:text-blue-700"
+                      >
+                        {name}
+                      </a>
+                    ))}
+                    </div>
 </div>
+                )}
+              </div>
+              
+              
 
               <div className="hidden items-center gap-3 text-sm font-medium text-blue-950 lg:flex">
                 <Link
@@ -135,54 +113,47 @@ const [familyOpen, setFamilyOpen] = useState(false);
             </>
           )}
 
-          {/* 햄버거 + 모바일 언어 */}
-<div className="flex flex-col items-center">
-  {/* 햄버거 버튼 */}
-  <button
-    type="button"
-    onClick={() => setOpen(!open)}
-    className="flex h-8 w-8 items-center justify-center lg:h-10 lg:w-10"
-  >
-    {open ? (
-      <span className="text-5xl font-light leading-none text-blue-700">
-        ×
-      </span>
-    ) : (
-      <span className="flex flex-col gap-1">
-        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
-        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
-        <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
-      </span>
-    )}
-  </button>
+          <div className="flex flex-col items-center">
+            <button
+              type="button"
+              onClick={() => setOpen(!open)}
+              className="flex h-8 w-8 items-center justify-center lg:h-10 lg:w-10"
+            >
+              {open ? (
+                <span className="text-5xl font-light leading-none text-blue-700">
+                  ×
+                </span>
+              ) : (
+                <span className="flex flex-col gap-1">
+                  <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+                  <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+                  <span className="block h-[2px] w-7 bg-blue-700 lg:w-8" />
+                </span>
+              )}
+            </button>
 
-  {/* 모바일용 KR / EN */}
-{!open && (
-  <div className="mt-2 flex flex-col items-center gap-1 text-[11px] font-medium text-blue-950 lg:hidden">
-    <Link
-      href={krHref}
-      className={
-        !isEN
-          ? "font-extrabold underline underline-offset-4"
-          : ""
-      }
-    >
-      KR
-    </Link>
+            {!open && (
+              <div className="mt-2 flex flex-col items-center gap-1 text-[11px] font-medium text-blue-950 lg:hidden">
+                <Link
+                  href={krHref}
+                  className={
+                    !isEN ? "font-extrabold underline underline-offset-4" : ""
+                  }
+                >
+                  KR
+                </Link>
 
-    <Link
-      href={enHref}
-      className={
-        isEN
-          ? "font-extrabold underline underline-offset-4"
-          : ""
-      }
-    >
-      EN
-    </Link>
-  </div>
-)}
-</div>
+                <Link
+                  href={enHref}
+                  className={
+                    isEN ? "font-extrabold underline underline-offset-4" : ""
+                  }
+                >
+                  EN
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
@@ -243,24 +214,19 @@ const [familyOpen, setFamilyOpen] = useState(false);
                   title="ABOUT US"
                   href={isEN ? "/en/about" : "/about"}
                   items={[
-                    [
-                      isEN ? "Company Overview" : "회사소개",
-                      isEN ? "/en/about" : "/about",
-                    ],
+                    [isEN ? "Company Overview" : "회사소개", isEN ? "/en/about" : "/about"],
                   ]}
                   onClose={() => setOpen(false)}
                 />
-<MenuGroup
+
+                <MenuGroup
                   title="BUSINESS AREA"
                   href={isEN ? "/en/business" : "/business"}
                   items={[
                     [isEN ? "Energy" : "에너지", isEN ? "/en/business" : "/business"],
                     [isEN ? "Steel" : "철강", isEN ? "/en/business" : "/business"],
                     [isEN ? "Chemical" : "화학", isEN ? "/en/business" : "/business"],
-                    [
-                      isEN ? "New Materials" : "신소재",
-                      isEN ? "/en/business" : "/business",
-                    ],
+                    [isEN ? "New Materials" : "신소재", isEN ? "/en/business" : "/business"],
                   ]}
                   onClose={() => setOpen(false)}
                 />
@@ -269,14 +235,8 @@ const [familyOpen, setFamilyOpen] = useState(false);
                   title="IR INFORMATION"
                   href={isEN ? "/en/ir" : "/ir"}
                   items={[
-                    [
-                      isEN ? "Financial Information" : "재무정보",
-                      isEN ? "/en/ir" : "/ir",
-                    ],
-                    [
-                      isEN ? "Disclosure" : "공시정보",
-                      isEN ? "/en/ir" : "/ir",
-                    ],
+                    [isEN ? "Financial Information" : "재무정보", isEN ? "/en/ir" : "/ir"],
+                    [isEN ? "Disclosure" : "공시정보", isEN ? "/en/ir" : "/ir"],
                   ]}
                   onClose={() => setOpen(false)}
                 />
@@ -289,59 +249,30 @@ const [familyOpen, setFamilyOpen] = useState(false);
                   ]}
                   onClose={() => setOpen(false)}
                 />
-<MenuGroup
+
+                <MenuGroup
                   title="RECRUIT"
                   href={isEN ? "/en/recruit" : "/recruit"}
                   items={[
-                    [
-                      isEN ? "Recruitment" : "채용정보",
-                      isEN ? "/en/recruit" : "/recruit",
-                    ],
-                    [
-                      isEN ? "Process" : "채용절차",
-                      isEN ? "/en/recruit" : "/recruit",
-                    ],
-                    [
-                      isEN ? "Benefits" : "복리후생",
-                      isEN ? "/en/recruit" : "/recruit",
-                    ],
+                    [isEN ? "Recruitment" : "채용정보", isEN ? "/en/recruit" : "/recruit"],
+                    [isEN ? "Process" : "채용절차", isEN ? "/en/recruit" : "/recruit"],
+                    [isEN ? "Benefits" : "복리후생", isEN ? "/en/recruit" : "/recruit"],
                   ]}
                   onClose={() => setOpen(false)}
                 />
+
                 <MenuGroup
                   title="CONTACT US"
                   href={isEN ? "/en/contact" : "/contact"}
                   items={[]}
                   onClose={() => setOpen(false)}
                 />
-                
-
-                
               </div>
             </div>
           </div>
         </>
       )}
     </>
-  );
-}
-
-function FamilyLink({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block py-2 text-sm text-gray-700 hover:text-blue-700"
-    >
-      {children}
-    </a>
   );
 }
 
